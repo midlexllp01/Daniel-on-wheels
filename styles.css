@@ -1529,6 +1529,8 @@ html, body {
 .btn-primary:hover { color: white; background: var(--dlso-red-dark); }
 .btn-gold { color: #302719; background: #e6c47e; border-color: #d4b36e; }
 .btn-gold:hover { color: #302719; background: #efd394; }
+.btn-half { color: #74501c; background: #f8ebcc; border-color: #c69a4d; font-weight: 800; }
+.btn-half:hover:not(:disabled) { color: #57390f; background: #f1dba9; border-color: #a97b31; }
 .btn-success { color: white; background: var(--emerald); border-color: var(--emerald); }
 .btn-danger { color: #fff; background: var(--dlso-red); border-color: var(--dlso-red); }
 .question-stage-card { padding: clamp(1rem, 2vw, 1.6rem); }
