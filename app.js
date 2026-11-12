@@ -5,6 +5,11 @@
 
 const STORAGE_KEY = 'dlso_benin_wheel_game_v2_50q';
 
+function cloneData(value) {
+  if (typeof structuredClone === 'function') return structuredClone(value);
+  return JSON.parse(JSON.stringify(value));
+}
+
 // 50 Complete Bible Quiz Questions from the Book of Daniel (Chapters 1 to 12)
 // Mix of Multiple Choice ('mcq') and Short Answer ('short')
 const DEFAULT_QUESTIONS = [
@@ -953,22 +958,22 @@ function loadState() {
       const parsed = JSON.parse(raw);
       state.questions = Array.isArray(parsed.questions) && parsed.questions.length
         ? parsed.questions
-        : structuredClone(DEFAULT_QUESTIONS);
+        : cloneData(DEFAULT_QUESTIONS);
       state.contenders = Array.isArray(parsed.contenders) && parsed.contenders.length
         ? parsed.contenders
-        : structuredClone(DEFAULT_CONTENDERS);
+        : cloneData(DEFAULT_CONTENDERS);
       state.settings = { ...DEFAULT_SETTINGS, ...(parsed.settings || {}) };
       state.activeContenderId = parsed.activeContenderId || state.contenders[0]?.id || null;
     } else {
-      state.questions = structuredClone(DEFAULT_QUESTIONS);
-      state.contenders = structuredClone(DEFAULT_CONTENDERS);
+      state.questions = cloneData(DEFAULT_QUESTIONS);
+      state.contenders = cloneData(DEFAULT_CONTENDERS);
       state.settings = { ...DEFAULT_SETTINGS };
       state.activeContenderId = state.contenders[0]?.id || null;
     }
   } catch (err) {
     console.error('Failed to load state from localStorage, using defaults:', err);
-    state.questions = structuredClone(DEFAULT_QUESTIONS);
-    state.contenders = structuredClone(DEFAULT_CONTENDERS);
+    state.questions = cloneData(DEFAULT_QUESTIONS);
+    state.contenders = cloneData(DEFAULT_CONTENDERS);
     state.settings = { ...DEFAULT_SETTINGS };
     state.activeContenderId = state.contenders[0]?.id || null;
   }
@@ -2640,7 +2645,7 @@ function initEvents() {
   });
 
   document.getElementById('btnResetDefaultQuestions').addEventListener('click', () => {
-    state.questions = structuredClone(DEFAULT_QUESTIONS);
+    state.questions = cloneData(DEFAULT_QUESTIONS);
     saveState();
     renderAll();
     renderAdminPortal();
