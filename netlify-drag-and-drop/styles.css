@@ -1560,6 +1560,12 @@ html, body {
 .admin-q-item { color: var(--text-main); background: #fffdf9; border-color: #e6dfd4; }
 .admin-contender-item { color: var(--text-main); }
 .question-empty-state p { color: var(--text-muted); }
+.mcq-option-btn { color: #26323c; background: #fffdf9; border-color: #d8d0c4; }
+.mcq-option-btn:hover:not(:disabled) { color: #202a35; background: #f5efdf; border-color: #b8863d; }
+.mcq-letter { color: #76551f; background: #f2e6ca; }
+.mcq-option-btn.selected { color: #3d301c; background: #f8edcf; border-color: #bd913d; }
+.mcq-option-btn.correct-reveal { color: #194d38; background: #e6f3ea; border-color: #65a982; }
+.mcq-option-btn.wrong-reveal { color: #722e28; background: #fae9e6; border-color: #d87567; }
 .modal-backdrop { background: rgba(23,30,36,.62); backdrop-filter: blur(5px); }
 .modal-shell { color: var(--text-main); background: #fffdf9; border: 1px solid #e3dbcf; border-radius: 15px; box-shadow: 0 24px 75px rgba(0,0,0,.24); }
 .modal-header { color: var(--text-main); background: #f5f1e9; border-bottom: 1px solid #e6dfd4; }
