@@ -2401,12 +2401,48 @@ function initEvents() {
     const control = document.getElementById(id);
     if (!control) return;
     control.addEventListener('click', spinWheel);
-    control.addEventListener('pointerdown', (event) => {
-      if (event.pointerType !== 'touch') return;
-      event.preventDefault();
-      spinWheel();
-    });
   });
+
+  // Some mobile browsers/webviews omit the compatibility click after touch.
+  // Forward a short, stationary touch to the normal click handlers and suppress
+  // the browser's follow-up click when it does emit one.
+  let touchStart = null;
+  let lastForwardedTouch = null;
+  let lastForwardedTouchAt = 0;
+  document.addEventListener('touchstart', (event) => {
+    const touch = event.changedTouches?.[0];
+    if (!touch) return;
+    touchStart = { x: touch.clientX, y: touch.clientY, target: event.target };
+  }, { capture: true, passive: true });
+  document.addEventListener('touchend', (event) => {
+    const touch = event.changedTouches?.[0];
+    if (!touch || !touchStart) return;
+    const start = touchStart;
+    touchStart = null;
+    if (Math.hypot(touch.clientX - start.x, touch.clientY - start.y) > 12) return;
+
+    const target = start.target instanceof Element
+      ? start.target.closest('button, a, label, summary, canvas, [role="button"]')
+      : null;
+    if (!target || target.matches(':disabled') || target.getAttribute('aria-disabled') === 'true') return;
+
+    lastForwardedTouch = target;
+    lastForwardedTouchAt = Date.now();
+    target.click();
+    setTimeout(() => {
+      if (Date.now() - lastForwardedTouchAt >= 900) lastForwardedTouch = null;
+    }, 950);
+  }, { capture: true, passive: true });
+  document.addEventListener('click', (event) => {
+    if (!event.isTrusted || !lastForwardedTouch) return;
+    const clicked = event.target;
+    if (Date.now() - lastForwardedTouchAt < 900 &&
+        (clicked === lastForwardedTouch || lastForwardedTouch.contains(clicked))) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      lastForwardedTouch = null;
+    }
+  }, true);
 
   document.getElementById('btnCancelMultiplier').addEventListener('click', () => {
     state.activeMultiplier = 1;
