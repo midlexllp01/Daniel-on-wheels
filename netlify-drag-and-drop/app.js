@@ -987,9 +987,11 @@ async function syncFromSupabaseCloud() {
       setCloudBadge('☁️ Supabase: Syncing...', '#fbbf24');
       const headers = {
         apikey: sbKey,
-        Authorization: `Bearer ${sbKey}`,
         'Content-Type': 'application/json'
       };
+      if (sbKey.startsWith('eyJ')) {
+        headers.Authorization = `Bearer ${sbKey}`;
+      }
       const [qRes, cRes, sRes] = await Promise.all([
         fetch(`${sbUrl}/rest/v1/dlso_questions?select=*&order=q_order.asc,id.asc`, { headers }),
         fetch(`${sbUrl}/rest/v1/dlso_contenders?select=*&order=c_order.asc,id.asc`, { headers }),
@@ -1119,10 +1121,12 @@ function saveState() {
         setCloudBadge('☁️ Supabase: Saving...', '#fbbf24');
         const headers = {
           apikey: sbKey,
-          Authorization: `Bearer ${sbKey}`,
           'Content-Type': 'application/json',
           Prefer: 'resolution=merge-duplicates'
         };
+        if (sbKey.startsWith('eyJ')) {
+          headers.Authorization = `Bearer ${sbKey}`;
+        }
 
         const qRows = state.questions.map((q, idx) => ({
           id: q.id,
