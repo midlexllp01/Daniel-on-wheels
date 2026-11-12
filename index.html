@@ -7,7 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=admin-reset-20261113" />
+  <link rel="icon" type="image/png" href="dlso-logo.png?v=dlso-icon-20261113">
+  <link rel="apple-touch-icon" href="dlso-logo.png?v=dlso-icon-20261113">
+  <link rel="stylesheet" href="styles.css?v=question-restore-favicon-20261113" />
 </head>
 <body>
   <!-- Studio Ambient Rays & Confetti -->
@@ -161,8 +163,8 @@
               <div class="stat-pill">
                 Total Bank: <strong id="statTotalBankCount">0</strong>
               </div>
-              <button class="btn btn-sm" id="btnResetAnsweredQuestions" title="Restore all answered questions back onto the wheel">
-                ↺ Restore All Questions
+              <button class="btn btn-primary btn-sm" id="btnResetAnsweredQuestions" title="Put all taken questions back onto the wheel">
+                ↺ Restore Taken Questions
               </button>
             </div>
           </div>
@@ -308,7 +310,7 @@
           <span style="font-size:0.75rem; color:var(--text-muted);" id="trackerSummaryText">0 / 0 left</span>
         </div>
         <p style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.75rem;">
-          Click any badge below to open that question directly, or right-click to toggle Answered/Unanswered.
+          Tap a question to open or retake it. Use Restore Taken Questions above to put answered questions back on the wheel.
         </p>
         <div class="question-pills-grid" id="questionPillsGrid">
           <!-- Populated dynamically -->
@@ -650,6 +652,6 @@
   <!-- Toast Notifications -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <script src="app.js?v=admin-reset-20261113"></script>
+  <script src="app.js?v=question-restore-favicon-20261113"></script>
 </body>
 </html>

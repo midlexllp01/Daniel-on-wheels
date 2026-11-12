@@ -2058,9 +2058,11 @@ function renderQuestionTrackerGrid() {
     const pill = document.createElement('button');
     pill.type = 'button';
     pill.className = `q-grid-pill ${q.answered ? 'answered' : ''} ${state.activeQuestionId === q.id ? 'active-now' : ''}`;
-    pill.title = `Q${idx + 1}: ${q.category} (${q.points} Marks) — Click to open, Right-click to toggle Answered state`;
+    pill.title = q.answered
+      ? `Q${idx + 1}: Taken — tap to reopen or retake this question. Use Restore Taken Questions to put it back on the wheel.`
+      : `Q${idx + 1}: ${q.category} (${q.points} Marks) — tap to open this question.`;
     pill.innerHTML = `
-      <div>Q${idx + 1}</div>
+      <div>Q${idx + 1}${q.answered ? ' ✓' : ''}</div>
       <span>${q.points}m</span>
     `;
 
@@ -2497,7 +2499,7 @@ function initEvents() {
     });
     saveState();
     renderAll();
-    showToast('All 50 questions restored onto the wheel!');
+    showToast('All taken questions restored onto the wheel!');
   });
 
   document.getElementById('btnTimerToggle').addEventListener('click', toggleQuestionTimer);

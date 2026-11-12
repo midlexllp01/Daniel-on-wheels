@@ -1558,7 +1558,8 @@ button, a, label, [role="button"] { touch-action: manipulation; -webkit-tap-high
 .contender-score { color: #9b702f; }
 .nudge-btn { color: #53606a; background: #fff; border-color: #ddd6ca; }
 .q-grid-pill { color: #49555e; background: #f8f5ef; border-color: #e6dfd4; }
-.q-grid-pill.answered { color: #fff; }
+.q-grid-pill.answered { opacity: 1; color: #315c40; background: #e5f1e8; border-color: #83ad8e; text-decoration: none; }
+.q-grid-pill.answered span { color: #426d4f; }
 .q-grid-pill.active-now { color: #fff; }
 .q-badge-category { color: #5e5077; background: #f0ebf6; border-color: #ded2ea; }
 .q-badge-type { color: #2c6972; background: #e8f3f3; border-color: #cce3e2; }
