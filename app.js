@@ -2396,9 +2396,17 @@ function renderAll() {
 // WIRE UP EVENT LISTENERS
 // ==========================================
 function initEvents() {
-  document.getElementById('btnSpinMain').addEventListener('click', spinWheel);
-  document.getElementById('wheelCenterSpinBtn').addEventListener('click', spinWheel);
-  document.getElementById('wheelCanvas').addEventListener('click', spinWheel);
+  const spinControls = ['btnSpinMain', 'wheelCenterSpinBtn', 'wheelCanvas'];
+  spinControls.forEach((id) => {
+    const control = document.getElementById(id);
+    if (!control) return;
+    control.addEventListener('click', spinWheel);
+    control.addEventListener('pointerdown', (event) => {
+      if (event.pointerType !== 'touch') return;
+      event.preventDefault();
+      spinWheel();
+    });
+  });
 
   document.getElementById('btnCancelMultiplier').addEventListener('click', () => {
     state.activeMultiplier = 1;

@@ -1501,6 +1501,7 @@ html, body {
 .wheel-canvas-container { max-width: 460px; }
 .wheel-outer-halo { inset: 4px; filter: blur(20px); opacity: .38; }
 .wheel-center-btn { box-shadow: 0 4px 18px rgba(32,42,53,.22); }
+.wheel-center-btn, #wheelCanvas, .spin-cta-button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .wheel-controls-panel { gap: .8rem; }
 .wheel-status-banner {
   background: #f4efe5; border: 1px solid #e8decb; border-left: 3px solid var(--gold);
