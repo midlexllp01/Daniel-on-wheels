@@ -1376,6 +1376,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  pointer-events: none;
 }
 
 .toast-msg {
@@ -1389,6 +1390,7 @@ html, body {
   font-weight: 700;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
   animation: slideDownFade 0.2s ease-out;
+  pointer-events: auto;
 }
 
 /* Responsive Breakpoints */
@@ -1685,7 +1687,7 @@ button, a, label, [role="button"] { touch-action: manipulation; -webkit-tap-high
   .form-row-2 { grid-template-columns: 1fr 1fr; gap: .5rem; }
   .admin-q-item { padding: .7rem; }
   .admin-q-item > div { min-width: 0; }
-  .toast-container { left: .6rem; right: .6rem; top: .6rem; }
+  .toast-container { left: .6rem; right: .6rem; top: .6rem; bottom: auto; }
   .toast-msg { width: 100%; }
 }
 
