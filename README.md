@@ -1,5 +1,7 @@
 # 🎡 DLSO Benin Region — "Daniel on the Wheels"
 
+A DLSO game on the Book of Daniel.
+
 > **Interactive Christian Bible Quiz & Spinning Wheel Game Show Web Application**  
 > Built for **DLSO (Deeper Life Student Outreach) Benin Region** • Powered by **Supabase PostgreSQL** & **Netlify**
 
