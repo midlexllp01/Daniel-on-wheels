@@ -1544,6 +1544,9 @@ button, a, label, [role="button"] { touch-action: manipulation; -webkit-tap-high
 .timer-readout { color: var(--dlso-red); }
 .timer-progress-track { background: #e9e4dc; }
 .answer-reveal-box { background: #edf5ef; border-color: #bed7c4; color: #234633; }
+.answer-reveal-label { color: #28704d; }
+.answer-reveal-text { color: #173d2b; }
+.answer-reveal-ref { color: #3f6650; }
 .host-scoring-bar { background: #f7f4ee; border-color: #e7e0d6; border-radius: 10px; }
 .scoring-contender-select { color: #55616a; }
 .scoreboard-card, .tracker-card { padding: 1.1rem; border-top: 0; }
