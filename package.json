@@ -1,0 +1,13 @@
+{
+  "name": "dlso-benin-daniel-on-the-wheels",
+  "version": "1.0.0",
+  "description": "DLSO Benin Region — Daniel on the Wheels Christian Quiz Game Show (Supabase Postgres + Netlify)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed-supabase.js"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}

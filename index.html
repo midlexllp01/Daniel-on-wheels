@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DLSO Benin Region — Daniel on the Wheels | Christian Bible Quiz Game Show</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Studio Ambient Rays & Confetti -->
+  <div class="studio-backdrop"></div>
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Top Broadcast Header -->
+  <header class="app-header">
+    <div class="brand-cluster">
+      <div class="logo-wrapper" id="headerLogoWrapper" title="DLSO Benin Region Emblem">
+        <img id="headerLogoImg" src="dlso-logo.png" alt="DLSO Logo" onerror="this.style.display='none'; document.getElementById('headerFallbackSvg').style.display='block';" />
+        <!-- High-precision fallback SVG matching DLSO shield + red cross + open Bible -->
+        <svg id="headerFallbackSvg" style="display:none;" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <line x1="60" y1="3" x2="60" y2="23" stroke="#e61919" stroke-width="5" stroke-linecap="round"/>
+          <line x1="51" y1="10" x2="69" y2="10" stroke="#e61919" stroke-width="5" stroke-linecap="round"/>
+          <path d="M60 20 C75 28, 95 20, 110 38 C98 48, 102 82, 92 95 C78 106, 66 108, 60 116 C54 108, 42 106, 28 95 C18 82, 22 48, 10 38 C25 20, 45 28, 60 20 Z" fill="#16092e" stroke="#e61919" stroke-width="4"/>
+          <text x="60" y="76" text-anchor="middle" fill="#ffffff" font-family="Impact, Arial Black, sans-serif" font-size="38" font-weight="900" letter-spacing="1">DLSO</text>
+          <path d="M22 86 Q41 80 60 88 Q79 80 98 86" fill="none" stroke="#ffffff" stroke-width="4"/>
+          <line x1="8" y1="89" x2="112" y2="89" stroke="#16092e" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="brand-titles">
+        <div class="org-badge">
+          <span class="cross-dot">✚</span>
+          <span id="orgTitleDisplay">DLSO BENIN REGION</span>
+        </div>
+        <h1 class="game-title" id="gameTitleDisplay">DANIEL ON THE WHEELS</h1>
+        <p class="game-subtitle" id="gameSubtitleDisplay">Christian Bible Quiz &amp; Wheel Game Show</p>
+      </div>
+    </div>
+
+    <!-- Active Contender Turn Indicator -->
+    <div class="turn-spotlight" id="headerTurnSpotlight" title="Click 'Next Turn' to advance contender">
+      <div>
+        <div class="turn-spotlight-label">🎯 On the Hot Seat</div>
+        <div class="turn-spotlight-name" id="activeContenderBannerName">Select Contender</div>
+      </div>
+      <div class="turn-spotlight-score" id="activeContenderBannerScore">0 Marks</div>
+      <button class="btn btn-sm" id="btnNextTurnHeader" title="Switch to Next Contender (Shortcut: N)">Next Turn ⏭</button>
+    </div>
+
+    <!-- Header Controls -->
+    <div class="header-actions">
+      <span class="stat-pill" id="cloudSyncStatusPill" title="Supabase PostgreSQL Cloud Sync Status" style="font-size:0.75rem; padding:0.35rem 0.7rem;">
+        ☁️ Supabase: Connecting...
+      </span>
+      <button class="btn btn-sm" id="btnToggleSound" title="Mute / Unmute Studio Sound Effects">
+        🔊 Sound: ON
+      </button>
+      <button class="btn btn-sm" id="btnFullscreen" title="Toggle Projector Fullscreen">
+        ⛶ Fullscreen
+      </button>
+      <button class="btn btn-gold btn-sm" id="btnOpenPodium" title="Show Winner Podium &amp; Confetti">
+        🏆 Podium
+      </button>
+      <button class="btn btn-primary btn-sm" id="btnOpenAdmin" title="Open Admin Portal (Question &amp; Contender Management)">
+        ⚙️ Admin Portal
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Broadcast Workspace -->
+  <main class="game-layout">
+    <!-- Left / Center Stage Column: Wheel on top, Question Box directly underneath -->
+    <div class="main-stage-column">
+
+      <!-- 1. THE SPINNING WHEEL STAGE -->
+      <section class="stage-card wheel-stage-card" aria-label="Spinning Wheel Stage">
+        <div class="wheel-stage-grid">
+          <!-- Wheel Canvas + Center Hub + Pointer -->
+          <div class="wheel-canvas-container" id="wheelContainer">
+            <div class="wheel-outer-halo"></div>
+            <canvas id="wheelCanvas" width="760" height="760"></canvas>
+
+            <!-- Right-side Crimson & Gold Pointer -->
+            <svg class="wheel-pointer" id="wheelPointer" viewBox="0 0 64 52" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="ptrGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#fde047"/>
+                  <stop offset="50%" stop-color="#e61919"/>
+                  <stop offset="100%" stop-color="#990f0f"/>
+                </linearGradient>
+              </defs>
+              <polygon points="2,26 56,4 48,26 56,48" fill="url(#ptrGrad)" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="48" cy="26" r="5" fill="#fef08a"/>
+            </svg>
+
+            <!-- Center Hub Spin Button with DLSO Logo -->
+            <button class="wheel-center-btn" id="wheelCenterSpinBtn" title="Click or press Spacebar to Spin!">
+              <img id="wheelCenterLogoImg" src="dlso-logo.png" alt="DLSO" onerror="this.style.display='none'; document.getElementById('wheelFallbackSvg').style.display='block';" />
+              <svg id="wheelFallbackSvg" style="display:none;" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="4" x2="60" y2="22" stroke="#e61919" stroke-width="6" stroke-linecap="round"/>
+                <line x1="50" y1="11" x2="70" y2="11" stroke="#e61919" stroke-width="6" stroke-linecap="round"/>
+                <path d="M60 20 C75 28, 95 20, 110 38 C98 48, 102 82, 92 95 C78 106, 66 108, 60 116 C54 108, 42 106, 28 95 C18 82, 22 48, 10 38 C25 20, 45 28, 60 20 Z" fill="#16092e" stroke="#e61919" stroke-width="5"/>
+                <text x="60" y="76" text-anchor="middle" fill="#ffffff" font-family="Impact, Arial Black, sans-serif" font-size="38" font-weight="900">DLSO</text>
+              </svg>
+              <span>SPIN</span>
+            </button>
+          </div>
+
+          <!-- Wheel Controls & Live Status -->
+          <div class="wheel-controls-panel">
+            <div class="wheel-status-banner">
+              <div class="wheel-status-tag" id="wheelStatusTag">READY TO SPIN</div>
+              <div class="wheel-status-headline" id="wheelStatusHeadline">
+                Host: Spin the Wheel to Draw a Question!
+              </div>
+              <div class="wheel-status-sub" id="wheelStatusSub">
+                Press <strong>Spacebar</strong> or click <strong>SPIN THE WHEEL</strong>. The selected question will appear in the Question Box right below.
+              </div>
+            </div>
+
+            <!-- Active Multiplier Banner (when 2X DOUBLE slice is hit) -->
+            <div class="multiplier-banner" id="multiplierBanner">
+              <span>🔥 DOUBLE MARKS ACTIVE FOR NEXT QUESTION! (2×)</span>
+              <button class="btn btn-sm" id="btnCancelMultiplier">Clear 2×</button>
+            </div>
+
+            <!-- Main Spin CTA -->
+            <button class="spin-cta-button" id="btnSpinMain">
+              <span>🎡 SPIN THE WHEEL</span>
+              <span style="font-size:0.78rem; opacity:0.85; font-weight:700;">(SPACE)</span>
+            </button>
+
+            <!-- Category Filter & Wheel Options -->
+            <div class="wheel-filter-row">
+              <div class="control-group">
+                <label for="categoryFilterSelect">Filter Category / Round</label>
+                <select id="categoryFilterSelect" class="select-field">
+                  <option value="ALL">All Categories</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label for="typeFilterSelect">Question Format</label>
+                <select id="typeFilterSelect" class="select-field">
+                  <option value="ALL">All Formats (MCQ + Short)</option>
+                  <option value="mcq">Multiple Choice Only</option>
+                  <option value="short">Short Answer Only</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Live Wheel Stats & Quick Reset -->
+            <div class="wheel-stats-pills">
+              <div class="stat-pill">
+                On Wheel: <strong id="statOnWheelCount">0</strong>
+              </div>
+              <div class="stat-pill">
+                Answered: <strong id="statAnsweredCount">0</strong>
+              </div>
+              <div class="stat-pill">
+                Total Bank: <strong id="statTotalBankCount">0</strong>
+              </div>
+              <button class="btn btn-sm" id="btnResetAnsweredQuestions" title="Restore all answered questions back onto the wheel">
+                ↺ Restore All Questions
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. THE QUESTION BOX STAGE (DIRECTLY UNDERNEATH THE WHEEL) -->
+      <section class="stage-card question-stage-card" id="questionStageCard" aria-label="Question Stage Box">
+        <!-- Empty State when no question is active -->
+        <div class="question-empty-state" id="questionEmptyState">
+          <div class="question-empty-icon">📖</div>
+          <h2 style="font-size:1.25rem; color:#ffffff; font-weight:800;">Question Box Ready</h2>
+          <p style="max-width:520px; font-size:0.9rem; line-height:1.5;">
+            Spin the wheel above and when it lands on a slice, the question (Multiple Choice or Short Answer), countdown timer, and scoring controls will appear right here. You can also click any question number on the right panel to open it manually.
+          </p>
+        </div>
+
+        <!-- Active Question Display (Hidden until wheel lands or question selected) -->
+        <div id="questionActiveContent" style="display:none;">
+          <div class="question-header-bar">
+            <div class="question-badges">
+              <span class="q-badge q-badge-number" id="qDisplayNumber">QUESTION #1</span>
+              <span class="q-badge q-badge-category" id="qDisplayCategory">Book of Daniel</span>
+              <span class="q-badge q-badge-type" id="qDisplayType">Multiple Choice</span>
+              <span class="q-badge q-badge-marks" id="qDisplayMarks">⭐ 10 MARKS</span>
+            </div>
+
+            <!-- Countdown Timer Controls -->
+            <div class="timer-cluster">
+              <span class="timer-readout" id="timerReadout">30s</span>
+              <button class="btn btn-sm" id="btnTimerToggle" title="Start / Pause Timer (Shortcut: T)">▶ Start</button>
+              <button class="btn btn-sm" id="btnTimerReset" title="Reset Question Timer">↺</button>
+            </div>
+          </div>
+
+          <!-- Progress Bar for Timer -->
+          <div class="timer-progress-track">
+            <div class="timer-progress-fill" id="timerProgressFill"></div>
+          </div>
+
+          <!-- Question Text Prompt -->
+          <div class="question-prompt-box" id="qDisplayPrompt">
+            Question text goes here...
+          </div>
+
+          <!-- A) MULTIPLE CHOICE OPTIONS CONTAINER -->
+          <div class="mcq-options-grid" id="mcqOptionsContainer" style="display:none;">
+            <!-- Populated dynamically: A, B, C, D -->
+          </div>
+
+          <!-- B) SHORT ANSWER CONTAINER -->
+          <div class="short-answer-zone" id="shortAnswerContainer" style="display:none;">
+            <div class="short-answer-input-row">
+              <input
+                type="text"
+                id="shortAnswerHostInput"
+                class="input-field"
+                placeholder="Optional: Type contender's spoken answer here for display on projector..."
+              />
+            </div>
+          </div>
+
+          <!-- OFFICIAL ANSWER & SCRIPTURE REVEAL BOX -->
+          <div class="answer-reveal-box" id="answerRevealBox" style="display:none;">
+            <div class="answer-reveal-label">✔ Official Answer &amp; Scripture Reference</div>
+            <div class="answer-reveal-text" id="answerRevealText">Answer Text</div>
+            <div class="answer-reveal-ref" id="answerRevealRef">Daniel 1:8</div>
+          </div>
+
+          <!-- HOST SCORING & ACTION BAR -->
+          <div class="host-scoring-bar">
+            <div class="scoring-top-row">
+              <div class="scoring-contender-select">
+                <span>🎯 Awarding / Scoring Contender:</span>
+                <select id="scoringContenderSelect" class="select-field" style="width:auto; min-width:210px; font-weight:800;"></select>
+              </div>
+              <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                <button class="btn btn-gold" id="btnRevealAnswer" title="Reveal the official answer on screen (Shortcut: R)">
+                  👁 Reveal Answer (R)
+                </button>
+                <button class="btn btn-sm" id="btnCloseQuestionBox" title="Close Question Box without marking answered">
+                  ✕ Close Box
+                </button>
+              </div>
+            </div>
+
+            <div class="scoring-buttons-row">
+              <button class="btn btn-success" id="btnScoreFull">
+                ✅ Correct! (+10 Marks)
+              </button>
+              <button class="btn" id="btnScoreHalf" style="border-color:var(--gold-bright); color:var(--gold-light);">
+                ➗ Half Marks (+5 Marks)
+              </button>
+              <button class="btn btn-danger" id="btnScoreWrong">
+                ❌ Incorrect (0 Marks)
+              </button>
+              <button class="btn" id="btnPassBonus" title="Keep question open and switch to another contender for a bonus attempt">
+                ↪ Pass / Bonus Attempt
+              </button>
+              <button class="btn" id="btnMarkCompleteNext" style="margin-left:auto;">
+                ✔ Mark Answered &amp; Next Turn ⏭
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Right Sidebar Column: Contender Scoreboard & Question Number Grid -->
+    <aside class="sidebar-column">
+      <!-- CONTENDERS SCOREBOARD -->
+      <section class="stage-card scoreboard-card" aria-label="Contenders Scoreboard">
+        <div class="card-section-header">
+          <h2 class="card-section-title">
+            <span>🏆 Contenders</span>
+          </h2>
+          <div style="display:flex; gap:0.4rem;">
+            <button class="btn btn-sm" id="btnSortContenders" title="Toggle sort between Turn Order and Highest Score">
+              ⇅ Sort: Score
+            </button>
+            <button class="btn btn-sm btn-primary" id="btnQuickAddContender" title="Manage or Add Contenders">
+              + Add
+            </button>
+          </div>
+        </div>
+
+        <p style="font-size:0.76rem; color:var(--text-dim); margin-bottom:0.75rem;">
+          Click any contender to put them on the <strong>Hot Seat</strong>, or use <strong>+ / −</strong> to adjust marks.
+        </p>
+
+        <div class="contenders-list" id="contendersListContainer">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- QUESTION BOARD QUICK SELECTOR -->
+      <section class="stage-card tracker-card" aria-label="Question Board Tracker">
+        <div class="card-section-header">
+          <h2 class="card-section-title">
+            <span>🔢 Question Board</span>
+          </h2>
+          <span style="font-size:0.75rem; color:var(--text-muted);" id="trackerSummaryText">0 / 0 left</span>
+        </div>
+        <p style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.75rem;">
+          Click any badge below to open that question directly, or right-click to toggle Answered/Unanswered.
+        </p>
+        <div class="question-pills-grid" id="questionPillsGrid">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <!-- =====================================================
+       ADMIN PORTAL MODAL (Questions, Contenders, Settings)
+       ===================================================== -->
+  <div class="modal-backdrop" id="adminModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle">
+    <div class="modal-shell">
+      <div class="modal-header">
+        <div class="modal-title" id="adminModalTitle">
+          <span>⚙️ DLSO Benin Region — Game Show Admin Portal</span>
+        </div>
+        <button class="btn btn-sm btn-danger" id="btnCloseAdmin">✕ Close Admin</button>
+      </div>
+
+      <!-- Admin Navigation Tabs -->
+      <div class="admin-tabs">
+        <button class="admin-tab-btn active" data-tab="tabQuestions">
+          📖 Question Management (<span id="adminQCountBadge">0</span>)
+        </button>
+        <button class="admin-tab-btn" data-tab="tabContenders">
+          👥 Contenders &amp; Teams (<span id="adminCCountBadge">0</span>)
+        </button>
+        <button class="admin-tab-btn" data-tab="tabSettings">
+          🎡 Wheel &amp; Branding Settings
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- TAB 1: QUESTION MANAGEMENT -->
+        <div class="admin-tab-pane active" id="tabQuestions">
+          <div class="admin-split-grid">
+            <!-- Left: Add / Edit Question Form -->
+            <form class="admin-form-card" id="questionForm">
+              <h3 id="questionFormHeading" style="font-size:1.05rem; font-weight:800; color:var(--gold-bright);">
+                ➕ Add New Question
+              </h3>
+              <input type="hidden" id="editQuestionId" value="" />
+
+              <div class="form-row-2">
+                <div class="control-group">
+                  <label for="qFormType">Question Format *</label>
+                  <select id="qFormType" class="select-field" required>
+                    <option value="mcq">Multiple Choice (A-D)</option>
+                    <option value="short">Short Answer</option>
+                  </select>
+                </div>
+                <div class="control-group">
+                  <label for="qFormCategory">Category / Book *</label>
+                  <input type="text" id="qFormCategory" class="input-field" placeholder="e.g. Book of Daniel" value="Book of Daniel" required />
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="control-group">
+                  <label for="qFormPoints">Score Marks *</label>
+                  <input type="number" id="qFormPoints" class="input-field" min="1" max="500" step="1" value="10" required />
+                </div>
+                <div class="control-group">
+                  <label for="qFormTimer">Timer (Seconds) *</label>
+                  <input type="number" id="qFormTimer" class="input-field" min="5" max="300" step="5" value="30" required />
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label for="qFormPrompt">Question Prompt *</label>
+                <textarea id="qFormPrompt" class="textarea-field" rows="3" placeholder="Enter the Bible quiz question..." required></textarea>
+              </div>
+
+              <!-- MCQ Specific Fields -->
+              <div id="qFormMcqFields" style="display:flex; flex-direction:column; gap:0.65rem;">
+                <label style="font-size:0.75rem; font-weight:800; color:var(--gold-bright); text-transform:uppercase;">
+                  Multiple Choice Options (Select radio button for correct answer)
+                </label>
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  <input type="radio" name="qFormCorrectIndex" value="0" checked title="Set A as Correct" />
+                  <span style="font-weight:800; width:20px;">A.</span>
+                  <input type="text" id="qFormOpt0" class="input-field" placeholder="Option A" />
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  <input type="radio" name="qFormCorrectIndex" value="1" title="Set B as Correct" />
+                  <span style="font-weight:800; width:20px;">B.</span>
+                  <input type="text" id="qFormOpt1" class="input-field" placeholder="Option B" />
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  <input type="radio" name="qFormCorrectIndex" value="2" title="Set C as Correct" />
+                  <span style="font-weight:800; width:20px;">C.</span>
+                  <input type="text" id="qFormOpt2" class="input-field" placeholder="Option C" />
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  <input type="radio" name="qFormCorrectIndex" value="3" title="Set D as Correct" />
+                  <span style="font-weight:800; width:20px;">D.</span>
+                  <input type="text" id="qFormOpt3" class="input-field" placeholder="Option D" />
+                </div>
+              </div>
+
+              <!-- Short Answer Specific Field -->
+              <div class="control-group" id="qFormShortFields" style="display:none;">
+                <label for="qFormShortAnswer">Expected Official Answer *</label>
+                <input type="text" id="qFormShortAnswer" class="input-field" placeholder="Enter the expected answer for the Host..." />
+              </div>
+
+              <div class="control-group">
+                <label for="qFormReference">Scripture Reference / Explanation</label>
+                <input type="text" id="qFormReference" class="input-field" placeholder="e.g. Daniel 6:10 — He prayed three times a day" />
+              </div>
+
+              <div style="display:flex; gap:0.6rem; margin-top:0.4rem;">
+                <button type="submit" class="btn btn-primary" style="flex:1;" id="btnSaveQuestion">
+                  💾 Save Question
+                </button>
+                <button type="button" class="btn" id="btnCancelEditQuestion" style="display:none;">
+                  Cancel
+                </button>
+              </div>
+            </form>
+
+            <!-- Right: Question Bank List & Bulk Tools -->
+            <div class="admin-questions-table-wrap">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.6rem;">
+                <input type="text" id="adminSearchQuestions" class="input-field" style="max-width:280px;" placeholder="🔍 Search questions or categories..." />
+                <div style="display:flex; gap:0.45rem; flex-wrap:wrap;">
+                  <button class="btn btn-sm" id="btnExportQuestions" title="Download Question Bank as JSON">⬇ Export JSON</button>
+                  <label class="btn btn-sm" style="cursor:pointer;">
+                    ⬆ Import JSON
+                    <input type="file" id="inputImportQuestions" accept=".json" style="display:none;" />
+                  </label>
+                  <button class="btn btn-sm btn-danger" id="btnResetDefaultQuestions" title="Reset Question Bank to DLSO Default Pack">
+                    ↺ Load Default DLSO Pack
+                  </button>
+                </div>
+              </div>
+
+              <div id="adminQuestionsList" style="display:flex; flex-direction:column; gap:0.65rem; max-height:520px; overflow-y:auto; padding-right:4px;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: CONTENDERS & TEAMS MANAGEMENT -->
+        <div class="admin-tab-pane" id="tabContenders">
+          <div class="admin-split-grid">
+            <form class="admin-form-card" id="contenderForm">
+              <h3 id="contenderFormHeading" style="font-size:1.05rem; font-weight:800; color:var(--gold-bright);">
+                👤 Add Contender / Team
+              </h3>
+              <input type="hidden" id="editContenderId" value="" />
+
+              <div class="control-group">
+                <label for="cFormName">Contender or Team Name *</label>
+                <input type="text" id="cFormName" class="input-field" placeholder="e.g. Bro. Daniel / Uniben Zone" required />
+              </div>
+
+              <div class="control-group">
+                <label for="cFormGroup">Group / District / School</label>
+                <input type="text" id="cFormGroup" class="input-field" placeholder="e.g. Ugbowo Axis / Shadrach House" />
+              </div>
+
+              <div class="form-row-2">
+                <div class="control-group">
+                  <label for="cFormScore">Current Score (Marks)</label>
+                  <input type="number" id="cFormScore" class="input-field" value="0" step="1" />
+                </div>
+                <div class="control-group">
+                  <label for="cFormColor">Badge Color</label>
+                  <input type="color" id="cFormColor" class="input-field" value="#e61919" style="height:39px; padding:4px;" />
+                </div>
+              </div>
+
+              <div style="display:flex; gap:0.6rem; margin-top:0.4rem;">
+                <button type="submit" class="btn btn-primary" style="flex:1;">
+                  💾 Save Contender
+                </button>
+                <button type="button" class="btn" id="btnCancelEditContender" style="display:none;">
+                  Cancel
+                </button>
+              </div>
+            </form>
+
+            <div style="display:flex; flex-direction:column; gap:0.85rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+                <h3 style="font-size:1rem; font-weight:800;">Registered Contenders</h3>
+                <div style="display:flex; gap:0.5rem;">
+                  <button class="btn btn-sm btn-danger" id="btnResetAllScores">↺ Reset All Scores to 0</button>
+                </div>
+              </div>
+              <div id="adminContendersList" style="display:flex; flex-direction:column; gap:0.6rem;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: WHEEL & BRANDING SETTINGS -->
+        <div class="admin-tab-pane" id="tabSettings">
+          <div class="admin-split-grid">
+            <form class="admin-form-card" id="settingsForm">
+              <h3 style="font-size:1.05rem; font-weight:800; color:var(--gold-bright);">
+                🏛 Branding &amp; Event Details
+              </h3>
+              <div class="control-group">
+                <label for="setOrgName">Region / Organization Title</label>
+                <input type="text" id="setOrgName" class="input-field" value="DLSO BENIN REGION" />
+              </div>
+              <div class="control-group">
+                <label for="setGameTitle">Main Game Show Title</label>
+                <input type="text" id="setGameTitle" class="input-field" value="DANIEL ON THE WHEELS" />
+              </div>
+              <div class="control-group">
+                <label for="setGameSubtitle">Event Subtitle</label>
+                <input type="text" id="setGameSubtitle" class="input-field" value="Christian Bible Quiz & Wheel Game Show" />
+              </div>
+              <div class="control-group">
+                <label for="setLogoUpload">Upload Custom Logo (Optional)</label>
+                <input type="file" id="setLogoUpload" accept="image/*" class="input-field" />
+                <button type="button" class="btn btn-sm" id="btnResetLogoDefault" style="margin-top:0.35rem;">Use Default DLSO Logo</button>
+              </div>
+              <button type="submit" class="btn btn-primary" style="margin-top:0.5rem;">💾 Save Settings</button>
+            </form>
+
+            <div class="admin-form-card">
+              <h3 style="font-size:1.05rem; font-weight:800; color:var(--gold-bright);">
+                🎡 Wheel &amp; Gameplay Rules
+              </h3>
+
+              <label style="display:flex; align-items:center; gap:0.65rem; cursor:pointer; font-size:0.9rem;">
+                <input type="checkbox" id="setRemoveAnswered" checked />
+                <span><strong>Remove answered questions from the wheel</strong> (so the wheel only lands on fresh questions)</span>
+              </label>
+
+              <label style="display:flex; align-items:center; gap:0.65rem; cursor:pointer; font-size:0.9rem;">
+                <input type="checkbox" id="setIncludeSpecialWedges" checked />
+                <span><strong>Include Game Show Special Slices</strong> (<em>🔥 2× Double Marks</em>, <em>🎁 +5 Bonus Marks</em>, <em>🎡 Spin Again</em>)</span>
+              </label>
+
+              <label style="display:flex; align-items:center; gap:0.65rem; cursor:pointer; font-size:0.9rem;">
+                <input type="checkbox" id="setAutoStartTimer" checked />
+                <span><strong>Auto-start countdown timer</strong> as soon as a question appears in the Question Box</span>
+              </label>
+
+              <div class="control-group" style="margin-top:0.5rem;">
+                <label for="setSpinDuration">Wheel Spin Duration (Seconds)</label>
+                <input type="number" id="setSpinDuration" class="input-field" min="2" max="10" value="4" />
+              </div>
+
+              <hr style="border:none; border-top:1px solid var(--border-subtle); margin:0.5rem 0;" />
+              <h4 style="font-size:0.9rem; font-weight:800; color:var(--gold-bright);">
+                ☁️ Supabase Direct Cloud Sync (For Netlify Drag-and-Drop)
+              </h4>
+              <div class="control-group">
+                <label for="setSupabaseUrl">Supabase Project URL</label>
+                <input type="text" id="setSupabaseUrl" class="input-field" value="https://mrubxczyfxhgfvkpzaxq.supabase.co" />
+              </div>
+              <div class="control-group">
+                <label for="setSupabaseAnonKey">Supabase Anon Public Key (from Supabase Dashboard → Settings → API)</label>
+                <input type="text" id="setSupabaseAnonKey" class="input-field" placeholder="Paste eyJ... or sb_publishable_... key here" />
+              </div>
+              <button type="button" class="btn btn-sm btn-gold" id="btnSaveSupabaseKey">
+                ☁️ Connect &amp; Sync with Supabase
+              </button>
+
+              <hr style="border:none; border-top:1px solid var(--border-subtle); margin:0.5rem 0;" />
+              <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.5;">
+                <strong>Host Keyboard Shortcuts:</strong><br/>
+                • <code>Spacebar</code> — Spin the Wheel<br/>
+                • <code>R</code> — Reveal Official Answer<br/>
+                • <code>T</code> — Start / Pause Question Timer<br/>
+                • <code>N</code> — Advance to Next Contender
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       WINNER PODIUM & CELEBRATION MODAL
+       ===================================================== -->
+  <div class="modal-backdrop" id="podiumModalBackdrop" role="dialog" aria-modal="true">
+    <div class="modal-shell" style="max-width:740px; text-align:center;">
+      <div class="modal-header">
+        <div class="modal-title">🏆 DLSO Benin Region — Championship Standings</div>
+        <button class="btn btn-sm btn-danger" id="btnClosePodium">✕ Close</button>
+      </div>
+      <div class="modal-body">
+        <div class="org-badge" style="justify-content:center; margin-bottom:0.35rem;">✚ SOLI DEO GLORIA ✚</div>
+        <h2 class="game-title" style="font-size:1.75rem;">CHAMPIONS OF THE WORD</h2>
+        <p style="color:var(--text-muted); font-size:0.9rem; margin-top:0.25rem;">
+          “And they that be wise shall shine as the brightness of the firmament...” — Daniel 12:3
+        </p>
+
+        <div class="podium-stage" id="podiumStageContainer">
+          <!-- Populated dynamically with Top 3 contenders -->
+        </div>
+
+        <div id="podiumFullStandings" style="max-width:500px; margin:0 auto; text-align:left; display:flex; flex-direction:column; gap:0.45rem;">
+          <!-- Remaining standings -->
+        </div>
+
+        <div style="margin-top:1.5rem; display:flex; justify-content:center; gap:0.75rem;">
+          <button class="btn btn-gold" id="btnFireConfettiAgain">🎉 Celebrate with Confetti &amp; Fanfare</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
