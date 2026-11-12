@@ -1409,3 +1409,187 @@ html, body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Daniel on the Wheels — editorial broadcast desk redesign */
+:root {
+  --bg-deep: #f2eee7;
+  --bg-primary: #f7f4ee;
+  --bg-secondary: #fffdf9;
+  --bg-card: #fffdf9;
+  --bg-card-hover: #f8f3e9;
+  --bg-glass: rgba(255, 253, 249, .94);
+  --dlso-red: #b9362b;
+  --dlso-red-bright: #d74b3d;
+  --dlso-red-dark: #84271f;
+  --dlso-navy: #202a35;
+  --gold: #b8863d;
+  --gold-bright: #d6a64f;
+  --gold-light: #f3dfb1;
+  --gold-dark: #85602c;
+  --emerald: #26846a;
+  --emerald-bright: #36a584;
+  --emerald-dark: #17634f;
+  --cyan: #2d8290;
+  --purple-accent: #71618f;
+  --text-main: #202a35;
+  --text-muted: #53606a;
+  --text-dim: #77818a;
+  --border-subtle: #e5dfd5;
+  --border-gold: rgba(184, 134, 61, .38);
+  --border-red: rgba(185, 54, 43, .35);
+  --shadow-glow-gold: 0 0 20px rgba(184, 134, 61, .18);
+  --shadow-glow-red: 0 0 20px rgba(185, 54, 43, .16);
+  --shadow-card: 0 12px 34px rgba(32, 42, 53, .07);
+  --radius-sm: 7px;
+  --radius-md: 11px;
+  --radius-lg: 15px;
+  --radius-xl: 19px;
+}
+
+html, body {
+  background: #f2eee7;
+  color: var(--text-main);
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+.studio-backdrop {
+  background: radial-gradient(ellipse at 72% 0%, rgba(214,166,79,.12), transparent 38%),
+    radial-gradient(ellipse at 0% 20%, rgba(185,54,43,.055), transparent 35%);
+}
+.app-header {
+  position: relative;
+  padding: .8rem clamp(1rem, 2vw, 2rem);
+  background: #202a35;
+  color: #fffdf9;
+  border: 0;
+  box-shadow: 0 8px 24px rgba(20,29,37,.13);
+}
+.brand-cluster { gap: .85rem; }
+.logo-wrapper {
+  width: 52px; height: 52px; border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.28); box-shadow: none;
+}
+.org-badge { color: #e5bd73; font-size: .64rem; letter-spacing: .16em; }
+.org-badge .cross-dot { color: #e87868; }
+.game-title {
+  color: #fffdf9; background: none;
+  -webkit-text-fill-color: currentColor;
+  font-size: clamp(1.08rem, 1.65vw, 1.42rem); letter-spacing: .055em;
+}
+.game-subtitle { color: #c1c7ca; font-size: .74rem; }
+.turn-spotlight {
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
+  border-radius: 10px; box-shadow: none; padding: .55rem .7rem;
+}
+.turn-spotlight-label { color: #e5bd73; }
+.turn-spotlight-name, .turn-spotlight-score { color: #fffdf9; }
+.header-actions { gap: .4rem; }
+.header-actions .btn { white-space: nowrap; }
+.game-layout {
+  max-width: 1760px; padding: 1.4rem clamp(1rem, 2.2vw, 2.25rem) 3rem;
+  grid-template-columns: minmax(0, 1fr) minmax(310px, 365px); gap: 1.1rem;
+}
+.main-stage-column, .sidebar-column { gap: 1.1rem; }
+.stage-card {
+  background: #fffdf9; border: 1px solid #e6dfd4;
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-card); backdrop-filter: none;
+}
+.wheel-stage-card {
+  padding: clamp(1rem, 1.7vw, 1.6rem); border-top: 0;
+  background: linear-gradient(135deg, #fffdf9, #faf7f0);
+}
+.wheel-stage-grid { grid-template-columns: minmax(280px, 43%) minmax(0, 1fr); gap: clamp(1rem, 2vw, 2rem); }
+.wheel-canvas-container { max-width: 460px; }
+.wheel-outer-halo { inset: 4px; filter: blur(20px); opacity: .38; }
+.wheel-center-btn { box-shadow: 0 4px 18px rgba(32,42,53,.22); }
+.wheel-controls-panel { gap: .8rem; }
+.wheel-status-banner {
+  background: #f4efe5; border: 1px solid #e8decb; border-left: 3px solid var(--gold);
+  border-radius: 10px; padding: 1rem 1.1rem;
+}
+.wheel-status-tag { color: var(--gold-dark); }
+.wheel-status-headline { color: var(--text-main); font-size: clamp(1.12rem, 1.6vw, 1.45rem); }
+.wheel-status-sub { color: var(--text-muted); }
+.spin-cta-button {
+  border-radius: 9px; background: var(--dlso-red); box-shadow: 0 5px 14px rgba(185,54,43,.2);
+  letter-spacing: .045em;
+}
+.spin-cta-button:hover { background: var(--dlso-red-dark); transform: translateY(-1px); }
+.control-group label { color: #6f7477; }
+.select-field, .input-field {
+  color: #25313b; background: #fff; border: 1px solid #d9d3ca; border-radius: 8px;
+}
+.select-field:focus, .input-field:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(184,134,61,.12); }
+.stat-pill { color: #5d666b; background: #f2eee7; border: 1px solid #e4ddd2; }
+.btn {
+  color: #34414a; background: #fffdf9; border: 1px solid #d9d3ca;
+  border-radius: 8px; box-shadow: none;
+}
+.btn:hover { color: #202a35; background: #f5f0e7; border-color: #c9bda9; transform: translateY(-1px); }
+.btn-primary { color: white; background: var(--dlso-red); border-color: var(--dlso-red); }
+.btn-primary:hover { color: white; background: var(--dlso-red-dark); }
+.btn-gold { color: #302719; background: #e6c47e; border-color: #d4b36e; }
+.btn-gold:hover { color: #302719; background: #efd394; }
+.btn-success { color: white; background: var(--emerald); border-color: var(--emerald); }
+.btn-danger { color: #fff; background: var(--dlso-red); border-color: var(--dlso-red); }
+.question-stage-card { padding: clamp(1rem, 2vw, 1.6rem); }
+.question-empty-state { color: var(--text-muted); }
+.question-empty-state h2 { color: var(--text-main) !important; }
+.question-header-bar { border-bottom-color: #e9e2d8; }
+.q-badge { border-radius: 5px; }
+.question-prompt-box { color: #26323c; background: #f6f2eb; border: 1px solid #e8e0d4; border-radius: 10px; }
+.timer-readout { color: var(--dlso-red); }
+.timer-progress-track { background: #e9e4dc; }
+.answer-reveal-box { background: #edf5ef; border-color: #bed7c4; color: #234633; }
+.host-scoring-bar { background: #f7f4ee; border-color: #e7e0d6; border-radius: 10px; }
+.scoring-contender-select { color: #55616a; }
+.scoreboard-card, .tracker-card { padding: 1.1rem; border-top: 0; }
+.card-section-title { color: #26323c; font-size: .9rem; letter-spacing: .09em; }
+.contender-item { background: #fbf8f2; border-color: #e8e1d7; border-radius: 9px; }
+.contender-item.active-turn { background: #f7eee0; border-color: #d6a64f; box-shadow: inset 3px 0 #b8863d; }
+.contender-score { color: #9b702f; }
+.nudge-btn { color: #53606a; background: #fff; border-color: #ddd6ca; }
+.q-grid-pill { color: #49555e; background: #f8f5ef; border-color: #e6dfd4; }
+.q-grid-pill.answered { color: #fff; }
+.q-grid-pill.active-now { color: #fff; }
+.q-badge-category { color: #5e5077; background: #f0ebf6; border-color: #ded2ea; }
+.q-badge-type { color: #2c6972; background: #e8f3f3; border-color: #cce3e2; }
+.timer-cluster { background: #f5f1e9; border-color: #e6dfd4; }
+.admin-tabs { background: #f5f1e9; border-color: #e6dfd4; }
+.admin-q-item { color: var(--text-main); background: #fffdf9; border-color: #e6dfd4; }
+.admin-contender-item { color: var(--text-main); }
+.question-empty-state p { color: var(--text-muted); }
+.modal-backdrop { background: rgba(23,30,36,.62); backdrop-filter: blur(5px); }
+.modal-shell { color: var(--text-main); background: #fffdf9; border: 1px solid #e3dbcf; border-radius: 15px; box-shadow: 0 24px 75px rgba(0,0,0,.24); }
+.modal-header { color: var(--text-main); background: #f5f1e9; border-bottom: 1px solid #e6dfd4; }
+.modal-title { color: #26323c; }
+.modal-body { color: var(--text-main); }
+.admin-tab-btn { color: #58636a; }
+.admin-tab-btn.active { color: var(--dlso-red); border-color: var(--dlso-red); }
+.admin-form-card { background: #faf7f1; border-color: #e7dfd4; }
+.admin-form-card h3, .admin-form-card h4 { color: #26323c !important; }
+.toast-msg { color: #fff; background: #26323c; border-color: #d6a64f; box-shadow: 0 8px 22px rgba(32,42,53,.2); }
+
+@media (max-width: 1180px) {
+  .game-layout { grid-template-columns: minmax(0, 1fr) 330px; }
+  .wheel-stage-grid { grid-template-columns: minmax(250px, 40%) minmax(0,1fr); }
+}
+@media (max-width: 940px) {
+  .game-layout { grid-template-columns: 1fr; }
+  .sidebar-column { display: grid; grid-template-columns: 1fr 1fr; align-items: start; }
+  .wheel-canvas-container { max-width: 390px; }
+}
+@media (max-width: 700px) {
+  .app-header { align-items: flex-start; flex-wrap: wrap; }
+  .brand-cluster { width: 100%; }
+  .turn-spotlight { flex: 1; }
+  .header-actions { width: 100%; flex-wrap: wrap; }
+  .header-actions .btn, .header-actions .stat-pill { flex: 1 1 auto; justify-content: center; }
+  .game-layout { padding: .8rem .7rem 2rem; }
+  .wheel-stage-grid { grid-template-columns: 1fr; }
+  .wheel-canvas-container { max-width: min(84vw, 360px); }
+  .sidebar-column { display: flex; }
+  .wheel-filter-row, .wheel-stats-pills { flex-wrap: wrap; }
+  .scoring-top-row { align-items: flex-start; }
+  .scoring-buttons-row .btn { flex: 1 1 44%; }
+  .modal-shell { width: calc(100vw - 1rem); max-height: calc(100vh - 1rem); }
+}
