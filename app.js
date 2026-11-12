@@ -4,6 +4,10 @@
  */
 
 const STORAGE_KEY = 'dlso_benin_wheel_game_v2_50q';
+const ADMIN_ACCESS_PASSWORD = 'JOSHUA';
+let adminAccessGranted = false;
+let pendingAdminTab = 'tabQuestions';
+let wheelAnimationFrameId = null;
 
 function cloneData(value) {
   if (typeof structuredClone === 'function') return structuredClone(value);
@@ -1510,8 +1514,9 @@ function spinWheel() {
     }
 
     if (progress < 1) {
-      requestAnimationFrame(animateFrame);
+      wheelAnimationFrameId = requestAnimationFrame(animateFrame);
     } else {
+      wheelAnimationFrameId = null;
       state.isSpinning = false;
       if (container) container.classList.remove('spinning');
       if (spinBtnMain) spinBtnMain.disabled = false;
@@ -1522,7 +1527,7 @@ function spinWheel() {
     }
   }
 
-  requestAnimationFrame(animateFrame);
+  wheelAnimationFrameId = requestAnimationFrame(animateFrame);
 }
 
 function handleWheelLanded(slice) {
@@ -2517,7 +2522,7 @@ function initEvents() {
   });
 
   document.getElementById('btnQuickAddContender').addEventListener('click', () => {
-    openAdminModal('tabContenders');
+    requestAdminAccess('tabContenders');
   });
 
   document.getElementById('btnOpenPodium').addEventListener('click', openPodiumModal);
@@ -2529,9 +2534,23 @@ function initEvents() {
     launchConfetti(130);
   });
 
-  document.getElementById('btnOpenAdmin').addEventListener('click', () => openAdminModal('tabQuestions'));
+  document.getElementById('btnOpenAdmin').addEventListener('click', () => requestAdminAccess('tabQuestions'));
   document.getElementById('btnCloseAdmin').addEventListener('click', () => {
     document.getElementById('adminModalBackdrop').classList.remove('open');
+    adminAccessGranted = false;
+  });
+  document.getElementById('btnCancelAdminAccess').addEventListener('click', closeAdminPasswordModal);
+  document.getElementById('adminPasswordForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const passwordInput = document.getElementById('adminPasswordInput');
+    if (passwordInput.value !== ADMIN_ACCESS_PASSWORD) {
+      document.getElementById('adminPasswordError').textContent = 'That password is not correct. Try again.';
+      passwordInput.select();
+      return;
+    }
+    adminAccessGranted = true;
+    closeAdminPasswordModal();
+    openAdminModal(pendingAdminTab);
   });
 
   document.querySelectorAll('.admin-tab-btn').forEach((btn) => {
@@ -2703,6 +2722,8 @@ function initEvents() {
     showToast('All contender scores reset to 0.');
   });
 
+  document.getElementById('btnResetGameProgress').addEventListener('click', resetGameProgress);
+
   document.getElementById('settingsForm').addEventListener('submit', (e) => {
     e.preventDefault();
     state.settings.orgName = document.getElementById('setOrgName').value.trim() || 'DLSO BENIN REGION';
@@ -2773,6 +2794,61 @@ function initEvents() {
       if (c) showToast(`🎯 Now on the Hot Seat: ${c.name}`);
     }
   });
+}
+
+function requestAdminAccess(tabId = 'tabQuestions') {
+  pendingAdminTab = tabId;
+  if (adminAccessGranted) {
+    openAdminModal(tabId);
+    return;
+  }
+  document.getElementById('adminPasswordInput').value = '';
+  document.getElementById('adminPasswordError').textContent = '';
+  document.getElementById('adminPasswordBackdrop').classList.add('open');
+  document.getElementById('adminPasswordInput').focus();
+}
+
+function closeAdminPasswordModal() {
+  document.getElementById('adminPasswordBackdrop').classList.remove('open');
+  document.getElementById('adminPasswordInput').value = '';
+  document.getElementById('adminPasswordError').textContent = '';
+}
+
+function resetGameProgress() {
+  const confirmed = window.confirm(
+    'Reset all scores to 0 and restore every question to unanswered? This also closes the current question and clears the active bonus.'
+  );
+  if (!confirmed) return;
+
+  if (wheelAnimationFrameId !== null) {
+    cancelAnimationFrame(wheelAnimationFrameId);
+    wheelAnimationFrameId = null;
+  }
+  state.isSpinning = false;
+  state.questions.forEach((question) => { question.answered = false; });
+  state.contenders.forEach((contender) => {
+    contender.score = 0;
+    contender.answeredCount = 0;
+  });
+  state.activeContenderId = state.contenders[0]?.id || null;
+  state.activeMultiplier = 1;
+  state.categoryFilter = 'ALL';
+  state.typeFilter = 'ALL';
+  state.wheelAngle = 0;
+
+  closeQuestionBox();
+  resetQuestionTimer(30, false);
+  document.getElementById('categoryFilterSelect').value = 'ALL';
+  document.getElementById('typeFilterSelect').value = 'ALL';
+  document.getElementById('wheelContainer').classList.remove('spinning');
+  document.getElementById('wheelCenterSpinBtn').disabled = false;
+  document.getElementById('btnSpinMain').disabled = false;
+  document.getElementById('wheelPointer').classList.remove('tick-bounce');
+
+  saveState();
+  renderAll();
+  renderAdminPortal();
+  showToast('Game progress reset: scores are 0 and all questions are available.');
 }
 
 function openAdminModal(tabId = 'tabQuestions') {

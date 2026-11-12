@@ -43,9 +43,11 @@ The Game Show Host spins an interactive wheel loaded with **up to 50+ Bible ques
 - Includes quick `+5` / `−5` score adjustment buttons, sorting by **Turn Order** or **Highest Score**, and a **🏆 Podium** modal with 1st, 2nd, and 3rd place pillars and full-screen confetti.
 
 ### 4. ⚙️ Full Admin Portal (Cloud-Synced with Supabase)
+- **Admin access password:** `JOSHUA`.
+- The password prompt is a client-side convenience gate; it is visible in this public repository and does not provide secure authentication for sensitive data.
 - **Question Management (CRUD):** Add, edit, search, or delete questions; choose Multiple Choice or Short Answer; customize **Score Marks** (`5`–`500`) and **Timer Seconds** per question; Export/Import `.json` packs; or reset to the 50-question Book of Daniel pack.
 - **Contenders & Teams Management:** Add/remove contenders, edit scores, customize badge colors, reorder turn sequence, or reset all scores to `0`.
-- **Wheel & Branding Settings:** Customize the Organization Name, Event Title, Subtitle, custom logo upload, spin duration, and Supabase connection settings.
+- **Wheel & Branding Settings:** Customize the Organization Name, Event Title, Subtitle, custom logo upload, spin duration, and Supabase connection settings. Reset game progress to clear scores and restore all questions to unanswered while keeping the question bank and settings.
 
 ---
 
