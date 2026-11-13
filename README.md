@@ -29,7 +29,7 @@ The Game Show Host spins an interactive wheel loaded with **20 youth discussion 
 
 ### 2. 📦 Discussion Question Box (Directly Under the Wheel)
 - **Open-ended prompts:** Each question includes its scripture reference and a projected host scratchpad for the response.
-- **Host guidance:** The reveal panel reminds the host to award marks for a clear, relevant, scripture-based response.
+- **Host guidance:** Reveal a suggested Scripture-based response for each prompt; use it as a guide when awarding marks for thoughtful, relevant answers.
 - **Countdown Timer:** Visual progress bar + 90-second timer with `Start/Pause (T)` and `Reset` controls.
 - **Host Scoring Action Bar:**
   - `✅ Correct! (+Full Marks)` — Awards full marks (or `2×` if Double Marks active), launches celebration confetti, marks the question complete, and rotates to the next contender.

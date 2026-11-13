@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="dlso-logo.png?v=dlso-icon-20261113">
   <link rel="apple-touch-icon" href="dlso-logo.png?v=dlso-icon-20261113">
-  <link rel="stylesheet" href="styles.css?v=daniel-youth-questions-20261113" />
+  <link rel="stylesheet" href="styles.css?v=daniel-suggested-answers-20261113" />
 </head>
 <body>
   <!-- Studio Ambient Rays & Confetti -->
@@ -229,7 +229,7 @@
 
           <!-- OFFICIAL ANSWER & SCRIPTURE REVEAL BOX -->
           <div class="answer-reveal-box" id="answerRevealBox" style="display:none;">
-            <div class="answer-reveal-label">✔ Official Answer &amp; Scripture Reference</div>
+            <div class="answer-reveal-label">✔ Suggested Response &amp; Scripture Reference</div>
             <div class="answer-reveal-text" id="answerRevealText">Answer Text</div>
             <div class="answer-reveal-ref" id="answerRevealRef">Daniel 1:8</div>
           </div>
@@ -242,7 +242,7 @@
                 <select id="scoringContenderSelect" class="select-field" style="width:auto; min-width:210px; font-weight:800;"></select>
               </div>
               <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-                <button class="btn btn-gold" id="btnRevealAnswer" title="Reveal the official answer on screen (Shortcut: R)">
+                <button class="btn btn-gold" id="btnRevealAnswer" title="Reveal a suggested response on screen (Shortcut: R)">
                   👁 Reveal Answer (R)
                 </button>
                 <button class="btn btn-sm" id="btnCloseQuestionBox" title="Close Question Box without marking answered">
@@ -432,7 +432,7 @@
 
               <!-- Short Answer Specific Field -->
               <div class="control-group" id="qFormShortFields" style="display:none;">
-                <label for="qFormShortAnswer">Expected Official Answer *</label>
+                <label for="qFormShortAnswer">Suggested Response / Answer *</label>
                 <input type="text" id="qFormShortAnswer" class="input-field" placeholder="Enter the expected answer for the Host..." />
               </div>
 
@@ -607,7 +607,7 @@
               <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.5;">
                 <strong>Host Keyboard Shortcuts:</strong><br/>
                 • <code>Spacebar</code> — Spin the Wheel<br/>
-                • <code>R</code> — Reveal Official Answer<br/>
+                • <code>R</code> — Reveal Suggested Response<br/>
                 • <code>T</code> — Start / Pause Question Timer<br/>
                 • <code>N</code> — Advance to Next Contender
               </div>
@@ -652,6 +652,6 @@
   <!-- Toast Notifications -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <script src="app.js?v=daniel-youth-questions-20261113"></script>
+  <script src="app.js?v=daniel-suggested-answers-20261113"></script>
 </body>
 </html>

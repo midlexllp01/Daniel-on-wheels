@@ -25,7 +25,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 1:8: Daniel purposed in his heart not to defile himself with the king's delicacies. What does Daniel's decision teach young people about conviction, self-discipline and refusing to compromise their values in a society that celebrates ungodliness?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel decided his loyalty to God before the pressure came. Young people can set clear boundaries, practise self-control, and respectfully refuse choices that violate their faith, even when compromise is popular.",
     "reference": "Daniel 1:8",
     "answered": false
   },
@@ -38,7 +38,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 1:3–4: What qualities did the king desire in the young men selected for royal service, and how can today's youths cultivate these qualities to become relevant and outstanding in their generation?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: The king sought young men without physical defect, well favoured, intelligent, knowledgeable, quick to learn, and fit for royal service. Youths can grow through education, curiosity, discipline, communication, and responsible service while keeping their values.",
     "reference": "Daniel 1:3–4",
     "answered": false
   },
@@ -51,7 +51,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 1:17: God gave Daniel and his friends knowledge, skill and wisdom. What is the relationship between spiritual devotion, academic development and excellence?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel 1:17 presents God as the giver of their knowledge and skill, while the young men still learned and served in the king's training. Devotion and study can work together: pray for wisdom, then prepare diligently and use learning faithfully.",
     "reference": "Daniel 1:17",
     "answered": false
   },
@@ -64,7 +64,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 1:20: Daniel and his friends were found ten times better than all the magicians and astrologers. What practical habits can help young Christians distinguish themselves in their studies, careers and chosen fields?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel's distinction points to tested wisdom and understanding. Practical habits include consistent study, preparation, asking questions, practising skills, seeking feedback, managing time, acting honestly, and giving God credit for opportunities and abilities.",
     "reference": "Daniel 1:20",
     "answered": false
   },
@@ -77,7 +77,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 6:4: Daniel's enemies could find no fault in him because he was faithful and neither corrupt nor negligent. What does this teach young people about building a reputation of integrity?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel's colleagues found no corruption or negligence in his public work. Integrity grows when young people tell the truth, keep promises, do careful work, accept accountability, and remain consistent even when no one is checking.",
     "reference": "Daniel 6:4",
     "answered": false
   },
@@ -90,7 +90,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 2:14–19: How did Daniel demonstrate wisdom and discretion when confronted with a life-threatening crisis, and what can youths learn about responding to pressure rather than reacting emotionally?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel answered the official with wisdom and tact, asked the king for time, then went to his companions and sought God's mercy in prayer. Under pressure, pause, gather facts, speak respectfully, seek wise support, and pray before acting.",
     "reference": "Daniel 2:14–19",
     "answered": false
   },
@@ -103,7 +103,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 2:20–23: Daniel acknowledged God as the source of wisdom and understanding. How can young people balance dependence on God with personal preparation, learning and intellectual development?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel praised God as the source of wisdom and thanked Him for the revelation. Dependence on God is not passivity: seek Him in prayer, study diligently, prepare carefully, learn from others, and use knowledge humbly.",
     "reference": "Daniel 2:20–23",
     "answered": false
   },
@@ -116,7 +116,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 2:46–49: What lessons can youths learn from Daniel's ability to use his God-given gifts to influence leadership and earn promotion?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel gave God credit for revealing the mystery, then used his role to serve and requested positions for his friends. Use gifts competently and humbly, serve the needs of others, share credit, and use influence to create opportunities for people around you.",
     "reference": "Daniel 2:46–49",
     "answered": false
   },
@@ -129,7 +129,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 5:11–12: Daniel was described as a man with an excellent spirit, knowledge, understanding and the ability to interpret difficult matters. What does an excellent spirit look like in the life of a young person today?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: An excellent spirit is seen in trustworthy character, sound judgment, knowledge, calm diligence, and faithful service. It means doing good work, learning continuously, treating people fairly, and staying dependable when tasks are difficult or unnoticed.",
     "reference": "Daniel 5:11–12",
     "answered": false
   },
@@ -142,7 +142,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 5:22–23: Belshazzar knew the history of Nebuchadnezzar but failed to learn from it. What dangers do young people face when they ignore the lessons of those who have gone ahead of them?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Belshazzar knew what happened to Nebuchadnezzar but did not humble himself. Ignoring experience can lead to repeated mistakes, pride, poor decisions, and avoidable harm. Young people should listen to wise counsel and let history correct their choices.",
     "reference": "Daniel 5:22–23",
     "answered": false
   },
@@ -155,7 +155,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 3:16–18: Shadrach, Meshach and Abednego refused to bow to Nebuchadnezzar's golden image, even when threatened with death. What does their response teach youths about standing firm in their faith despite peer pressure and societal expectations?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: The three friends refused idolatry and trusted God whether or not He rescued them from the furnace. Faithfulness may require a respectful but firm no, support from faithful friends, and trust in God without demanding a particular outcome.",
     "reference": "Daniel 3:16–18",
     "answered": false
   },
@@ -168,7 +168,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 3:25–27: The three Hebrew young men came out of the fiery furnace without harm. What does this account teach about God's presence, preservation and faithfulness during difficult seasons?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: The men were thrown into the furnace, yet the king saw a fourth figure with them and they came out unharmed. The passage portrays God's presence and power in suffering; it encourages trust without promising that every hardship will end in immediate physical rescue.",
     "reference": "Daniel 3:25–27",
     "answered": false
   },
@@ -181,7 +181,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 6:6–10: Daniel continued to pray despite the king's decree. What can young people learn about maintaining spiritual disciplines when obedience to God becomes unpopular or costly?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Prayer was already Daniel's regular practice; he continued giving thanks when the decree made it dangerous. Build spiritual habits before a crisis, keep them steadily, and obey God respectfully when human demands conflict with faith.",
     "reference": "Daniel 6:6–10",
     "answered": false
   },
@@ -194,7 +194,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 6:16–23: Daniel's commitment to God brought him into the lions' den, yet God delivered him. How can youths develop courage to remain faithful when their convictions expose them to ridicule, rejection or persecution?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel's courage grew from a settled trust in God, a life of consistent devotion, and a clear conscience. Youths can prepare through prayer, Scripture, supportive community, and wise counsel, then remain faithful even when the outcome is uncertain.",
     "reference": "Daniel 6:16–23",
     "answered": false
   },
@@ -207,7 +207,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 1:8 and Daniel 6:10: What connection exists between Daniel's private convictions and his public victories? Why is it important for young people to develop character when nobody is watching?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel's public integrity was rooted in convictions practised privately: he resolved not to defile himself and kept praying as before. Private choices form habits and character, so honesty and devotion matter even when there is no audience or reward.",
     "reference": "Daniel 1:8 and Daniel 6:10",
     "answered": false
   },
@@ -220,7 +220,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 1:6–7: Daniel and his friends were given new names in Babylon. What does this teach about protecting one's identity, values and godly heritage while adapting to a different culture or environment?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Babylon changed the young men's names and trained them in its culture, but Daniel still chose faithfulness to God. Young people can learn, adapt, and contribute in a new environment while holding on to their faith, conscience, and godly identity.",
     "reference": "Daniel 1:6–7",
     "answered": false
   },
@@ -233,7 +233,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 2:48–49: Daniel used his position to secure opportunities for his friends. What does this teach young people about servant leadership, friendship and using influence to lift others?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: After Daniel's promotion, he requested responsible roles for Shadrach, Meshach, and Abednego. Leadership is not only personal advancement: advocate fairly, share opportunities, honour trusted friends, and use influence to help others serve and grow.",
     "reference": "Daniel 2:48–49",
     "answered": false
   },
@@ -246,7 +246,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 9:2–3: Daniel studied the Scriptures and responded to his discoveries with prayer and fasting. What does this teach about the importance of studying God's Word and allowing knowledge to produce spiritual action?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel studied Jeremiah's prophecy, recognised its significance, and responded with prayer, fasting, and confession. Scripture study should shape worship, repentance, decisions, and compassionate action rather than remain information alone.",
     "reference": "Daniel 9:2–3",
     "answered": false
   },
@@ -259,7 +259,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 9:4–19: Daniel identified with the sins of his people and interceded for them. What can today's youths learn about responsibility, compassion and becoming part of the solution to societal problems?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel confessed the people's sins as 'we' and pleaded for mercy, rather than standing above them. Young people can acknowledge shared problems, pray with compassion, accept their part, and take practical, honest steps toward repair and justice.",
     "reference": "Daniel 9:4–19",
     "answered": false
   },
@@ -272,7 +272,7 @@ const DEFAULT_QUESTIONS = [
     "prompt": "Daniel 12:3: The Bible declares that those who turn many to righteousness will shine like the stars forever. What kind of legacy should young people desire to leave, and how can they use their gifts, education, influence and opportunities to make an eternal impact?",
     "options": [],
     "correctIndex": 0,
-    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "answer": "Suggested response: Daniel 12:3 honours those who turn many toward righteousness. Seek a legacy of faithful service and transformed lives: use education, gifts, resources, relationships, and influence to point people toward what is right and honour God.",
     "reference": "Daniel 12:3",
     "answered": false
   }
@@ -316,6 +316,26 @@ function replaceLegacyDefaultQuestionBank() {
     state.settings.gameSubtitle = DEFAULT_QUESTION_SUBTITLE;
   }
   return true;
+}
+
+function upgradeDefaultDiscussionAnswers(questions) {
+  if (!Array.isArray(questions) || questions.length !== DEFAULT_QUESTIONS.length) return false;
+  const defaultsById = new Map(DEFAULT_QUESTIONS.map((question) => [question.id, question]));
+  const ids = new Set(questions.map((question) => question?.id));
+  const matchesDefaultPrompts = ids.size === DEFAULT_QUESTIONS.length && questions.every((question) =>
+    question && defaultsById.get(question.id)?.prompt === question.prompt
+  );
+  if (!matchesDefaultPrompts) return false;
+
+  let changed = false;
+  questions.forEach((question) => {
+    const suggestedAnswer = defaultsById.get(question.id).answer;
+    if (question.answer !== suggestedAnswer) {
+      question.answer = suggestedAnswer;
+      changed = true;
+    }
+  });
+  return changed;
 }
 
 // Wheel Color Palette (DLSO Royal Theme — 6 rich alternating colors)
@@ -530,7 +550,7 @@ function loadState() {
     state.activeContenderId = state.contenders[0]?.id || null;
   }
 
-  if (replaceLegacyDefaultQuestionBank()) saveState();
+  if (replaceLegacyDefaultQuestionBank() || upgradeDefaultDiscussionAnswers(state.questions)) saveState();
 
   // Pull live data from Supabase PostgreSQL backend if running on Netlify or local Node server
   syncFromSupabaseCloud();
@@ -575,7 +595,7 @@ async function syncFromSupabaseCloud() {
           reference: r.reference || '',
           answered: Boolean(r.answered)
         }));
-        migratedQuestionBank = replaceLegacyDefaultQuestionBank();
+        migratedQuestionBank = replaceLegacyDefaultQuestionBank() || upgradeDefaultDiscussionAnswers(state.questions);
       }
 
       if (Array.isArray(cRows) && cRows.length > 0) {
@@ -634,6 +654,7 @@ async function syncFromSupabaseCloud() {
     if (data && data.ok && Array.isArray(data.questions) && data.questions.length > 0) {
       migratedQuestionBank = isLegacyDefaultQuestionBank(data.questions);
       state.questions = migratedQuestionBank ? cloneData(DEFAULT_QUESTIONS) : data.questions;
+      migratedQuestionBank = upgradeDefaultDiscussionAnswers(state.questions) || migratedQuestionBank;
       if (Array.isArray(data.contenders) && data.contenders.length > 0) {
         state.contenders = data.contenders;
       }
