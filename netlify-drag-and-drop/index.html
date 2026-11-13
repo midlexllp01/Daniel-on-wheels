@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="dlso-logo.png?v=dlso-icon-20261113">
   <link rel="apple-touch-icon" href="dlso-logo.png?v=dlso-icon-20261113">
-  <link rel="stylesheet" href="styles.css?v=question-restore-favicon-20261113" />
+  <link rel="stylesheet" href="styles.css?v=daniel-youth-questions-20261113" />
 </head>
 <body>
   <!-- Studio Ambient Rays & Confetti -->
@@ -255,7 +255,7 @@
               <button class="btn btn-success" id="btnScoreFull">
                 ✅ Correct! (+10 Marks)
               </button>
-              <button class="btn" id="btnScoreHalf" style="border-color:var(--gold-bright); color:var(--gold-light);">
+              <button class="btn btn-half" id="btnScoreHalf">
                 ➗ Half Marks (+5 Marks)
               </button>
               <button class="btn btn-danger" id="btnScoreWrong">
@@ -309,7 +309,7 @@
           </h2>
           <span style="font-size:0.75rem; color:var(--text-muted);" id="trackerSummaryText">0 / 0 left</span>
         </div>
-          <p style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.75rem;">
+        <p style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.75rem;">
           Tap a question to open or retake it. Use Restore Taken Questions above to put answered questions back on the wheel.
         </p>
         <div class="question-pills-grid" id="questionPillsGrid">
@@ -322,6 +322,24 @@
   <!-- =====================================================
        ADMIN PORTAL MODAL (Questions, Contenders, Settings)
        ===================================================== -->
+  <div class="modal-backdrop" id="adminPasswordBackdrop" role="dialog" aria-modal="true" aria-labelledby="adminPasswordTitle">
+    <form class="modal-shell admin-password-shell" id="adminPasswordForm">
+      <div class="modal-header">
+        <div class="modal-title" id="adminPasswordTitle">🔒 Admin Access</div>
+      </div>
+      <div class="modal-body admin-password-body">
+        <p>Enter the admin password to manage questions, contenders, and game settings.</p>
+        <label for="adminPasswordInput">Password</label>
+        <input type="password" id="adminPasswordInput" class="input-field" autocomplete="current-password" required />
+        <p class="admin-password-error" id="adminPasswordError" role="alert"></p>
+        <div class="admin-password-actions">
+          <button type="button" class="btn" id="btnCancelAdminAccess">Cancel</button>
+          <button type="submit" class="btn btn-primary">Unlock Admin</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
   <div class="modal-backdrop" id="adminModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle">
     <div class="modal-shell">
       <div class="modal-header">
@@ -443,8 +461,8 @@
                     ⬆ Import JSON
                     <input type="file" id="inputImportQuestions" accept=".json" style="display:none;" />
                   </label>
-                  <button class="btn btn-sm btn-danger" id="btnResetDefaultQuestions" title="Reset Question Bank to DLSO Default Pack">
-                    ↺ Load Default DLSO Pack
+                  <button class="btn btn-sm btn-danger" id="btnResetDefaultQuestions" title="Restore the 20 default youth discussion questions">
+                    ↺ Load 20 Default Questions
                   </button>
                 </div>
               </div>
@@ -579,6 +597,13 @@
               </button>
 
               <hr style="border:none; border-top:1px solid var(--border-subtle); margin:0.5rem 0;" />
+              <h4 style="font-size:0.9rem; font-weight:800; color:var(--gold-bright);">↺ Reset Game Progress</h4>
+              <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.5;">
+                Set all contender marks to 0, restore every question to unanswered, and clear the current question and bonus. Your question bank, contenders, and settings will stay in place.
+              </p>
+              <button type="button" class="btn btn-danger" id="btnResetGameProgress">↺ Reset Scores &amp; Questions</button>
+
+              <hr style="border:none; border-top:1px solid var(--border-subtle); margin:0.5rem 0;" />
               <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.5;">
                 <strong>Host Keyboard Shortcuts:</strong><br/>
                 • <code>Spacebar</code> — Spin the Wheel<br/>
@@ -627,6 +652,6 @@
   <!-- Toast Notifications -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <script src="app.js?v=question-restore-favicon-20261113"></script>
+  <script src="app.js?v=daniel-youth-questions-20261113"></script>
 </body>
 </html>

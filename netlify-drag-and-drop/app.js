@@ -1,6 +1,6 @@
 /**
  * DLSO BENIN REGION — "DANIEL ON THE WHEELS"
- * Christian Bible Quiz & Wheel Game Show Engine (50 Book of Daniel Questions Edition)
+ * Christian Bible Quiz & Wheel Game Show Engine (20 Youth Discussion Questions Edition)
  */
 
 const STORAGE_KEY = 'dlso_benin_wheel_game_v2_50q';
@@ -14,737 +14,267 @@ function cloneData(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
-// 50 Complete Bible Quiz Questions from the Book of Daniel (Chapters 1 to 12)
-// Mix of Multiple Choice ('mcq') and Short Answer ('short')
+// 20 open-ended youth discussion questions based on the Book of Daniel
 const DEFAULT_QUESTIONS = [
-  // --- CHAPTER 1: FAITHFULNESS IN BABYLON (Q1 - Q6) ---
   {
-    id: 'q1',
-    type: 'mcq',
-    category: 'Daniel Ch. 1',
-    points: 10,
-    timer: 30,
-    prompt: 'In the third year of the reign of which king of Judah did Nebuchadnezzar king of Babylon come unto Jerusalem and besiege it?',
-    options: ['Jehoiakim', 'Zedekiah', 'Josiah', 'Jehoiachin'],
-    correctIndex: 0,
-    answer: 'Jehoiakim',
-    reference: 'Daniel 1:1 — "In the third year of the reign of Jehoiakim king of Judah came Nebuchadnezzar king of Babylon unto Jerusalem, and besieged it."',
-    answered: false
+    "id": "q1",
+    "type": "short",
+    "category": "Daniel Chapter 1",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 1:8: Daniel purposed in his heart not to defile himself with the king's delicacies. What does Daniel's decision teach young people about conviction, self-discipline and refusing to compromise their values in a society that celebrates ungodliness?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 1:8",
+    "answered": false
   },
   {
-    id: 'q2',
-    type: 'short',
-    category: 'Daniel Ch. 1',
-    points: 10,
-    timer: 25,
-    prompt: 'What was the name of the master of the eunuchs whom King Nebuchadnezzar instructed to bring in certain of the children of Israel?',
-    options: [],
-    correctIndex: 0,
-    answer: 'Ashpenaz',
-    reference: 'Daniel 1:3 — "And the king spake unto Ashpenaz the master of his eunuchs, that he should bring certain of the children of Israel..."',
-    answered: false
+    "id": "q2",
+    "type": "short",
+    "category": "Daniel Chapter 1",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 1:3–4: What qualities did the king desire in the young men selected for royal service, and how can today's youths cultivate these qualities to become relevant and outstanding in their generation?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 1:3–4",
+    "answered": false
   },
   {
-    id: 'q3',
-    type: 'mcq',
-    category: 'Daniel Ch. 1',
-    points: 10,
-    timer: 25,
-    prompt: 'For how many years were Daniel and his companions to be nourished and taught the learning and tongue of the Chaldeans before standing before the king?',
-    options: ['One year', 'Two years', 'Three years', 'Seven years'],
-    correctIndex: 2,
-    answer: 'Three years',
-    reference: 'Daniel 1:5 — "...so nourishing them three years, that at the end thereof they might stand before the king."',
-    answered: false
+    "id": "q3",
+    "type": "short",
+    "category": "Daniel Chapter 1",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 1:17: God gave Daniel and his friends knowledge, skill and wisdom. What is the relationship between spiritual devotion, academic development and excellence?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 1:17",
+    "answered": false
   },
   {
-    id: 'q4',
-    type: 'short',
-    category: 'Daniel Ch. 1',
-    points: 15,
-    timer: 30,
-    prompt: 'What were the four Babylonian names given to Daniel, Hananiah, Mishael, and Azariah?',
-    options: [],
-    correctIndex: 0,
-    answer: 'Belteshazzar, Shadrach, Meshach, and Abednego',
-    reference: 'Daniel 1:7 — "...he gave unto Daniel the name of Belteshazzar; and to Hananiah, of Shadrach; and to Mishael, of Meshach; and to Azariah, of Abed-nego."',
-    answered: false
+    "id": "q4",
+    "type": "short",
+    "category": "Daniel Chapter 1",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 1:20: Daniel and his friends were found ten times better than all the magicians and astrologers. What practical habits can help young Christians distinguish themselves in their studies, careers and chosen fields?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 1:20",
+    "answered": false
   },
   {
-    id: 'q5',
-    type: 'mcq',
-    category: 'Daniel Ch. 1',
-    points: 10,
-    timer: 25,
-    prompt: 'Unto whom did Ashpenaz appoint the care of Daniel, Hananiah, Mishael, and Azariah, whom Daniel asked for a 10-day test of pulse and water?',
-    options: ['Arioch', 'Melzar', 'Nebuzaradan', 'Haman'],
-    correctIndex: 1,
-    answer: 'Melzar',
-    reference: 'Daniel 1:11–12 — "Then said Daniel to Melzar, whom the prince of the eunuchs had set over Daniel, Hananiah, Mishael, and Azariah, Prove thy servants, I beseech thee, ten days..."',
-    answered: false
+    "id": "q5",
+    "type": "short",
+    "category": "Daniel Chapter 6",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 6:4: Daniel's enemies could find no fault in him because he was faithful and neither corrupt nor negligent. What does this teach young people about building a reputation of integrity?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 6:4",
+    "answered": false
   },
   {
-    id: 'q6',
-    type: 'short',
-    category: 'Daniel Ch. 1',
-    points: 15,
-    timer: 30,
-    prompt: 'In all matters of wisdom and understanding that the king enquired of them, how many times better did he find Daniel and his three friends than all the magicians and astrologers in his realm?',
-    options: [],
-    correctIndex: 0,
-    answer: 'Ten times better (10 times)',
-    reference: 'Daniel 1:20 — "...he found them ten times better than all the magicians and astrologers that were in all his realm."',
-    answered: false
-  },
-
-  // --- CHAPTER 2: NEBUCHADNEZZAR'S DREAM OF THE GREAT IMAGE (Q7 - Q12) ---
-  {
-    id: 'q7',
-    type: 'mcq',
-    category: 'Daniel Ch. 2',
-    points: 10,
-    timer: 25,
-    prompt: 'In which language did the Chaldeans speak to King Nebuchadnezzar in Daniel 2:4 when they said, "O king, live for ever: tell thy servants the dream"?',
-    options: ['Hebrew', 'Greek', 'Syriack (Aramaic)', 'Persian'],
-    correctIndex: 2,
-    answer: 'Syriack (Aramaic)',
-    reference: 'Daniel 2:4 — "Then spake the Chaldeans to the king in Syriack, O king, live for ever: tell thy servants the dream..."',
-    answered: false
+    "id": "q6",
+    "type": "short",
+    "category": "Daniel Chapter 2",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 2:14–19: How did Daniel demonstrate wisdom and discretion when confronted with a life-threatening crisis, and what can youths learn about responding to pressure rather than reacting emotionally?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 2:14–19",
+    "answered": false
   },
   {
-    id: 'q8',
-    type: 'short',
-    category: 'Daniel Ch. 2',
-    points: 15,
-    timer: 30,
-    prompt: 'What was the name of the captain of the king’s guard who went forth to slay the wise men of Babylon in Daniel chapter 2?',
-    options: [],
-    correctIndex: 0,
-    answer: 'Arioch',
-    reference: 'Daniel 2:14 — "Then Daniel answered with counsel and wisdom to Arioch the captain of the king’s guard, which was gone forth to slay the wise men of Babylon."',
-    answered: false
+    "id": "q7",
+    "type": "short",
+    "category": "Daniel Chapter 2",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 2:20–23: Daniel acknowledged God as the source of wisdom and understanding. How can young people balance dependence on God with personal preparation, learning and intellectual development?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 2:20–23",
+    "answered": false
   },
   {
-    id: 'q9',
-    type: 'mcq',
-    category: 'Daniel Ch. 2',
-    points: 15,
-    timer: 30,
-    prompt: 'In Nebuchadnezzar’s dream of the great image (Daniel 2), what were the five materials of the image from top to bottom?',
-    options: [
-      'Gold, Silver, Brass, Iron, and Iron mixed with Miry Clay',
-      'Gold, Brass, Silver, Iron, and Bronze',
-      'Gold, Silver, Iron, Copper, and Stone',
-      'Silver, Gold, Brass, Clay, and Iron'
-    ],
-    correctIndex: 0,
-    answer: 'Gold, Silver, Brass, Iron, and Iron mixed with Miry Clay',
-    reference: 'Daniel 2:32–33 — "This image’s head was of fine gold, his breast and his arms of silver, his belly and his thighs of brass, His legs of iron, his feet part of iron and part of clay."',
-    answered: false
+    "id": "q8",
+    "type": "short",
+    "category": "Daniel Chapter 2",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 2:46–49: What lessons can youths learn from Daniel's ability to use his God-given gifts to influence leadership and earn promotion?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 2:46–49",
+    "answered": false
   },
   {
-    id: 'q10',
-    type: 'short',
-    category: 'Daniel Ch. 2',
-    points: 15,
-    timer: 30,
-    prompt: 'In Nebuchadnezzar’s dream, what struck the image upon its feet of iron and clay and brake them to pieces?',
-    options: [],
-    correctIndex: 0,
-    answer: 'A stone cut out without hands',
-    reference: 'Daniel 2:34 — "Thou sawest till that a stone was cut out without hands, which smote the image upon his feet that were of iron and clay, and brake them to pieces."',
-    answered: false
+    "id": "q9",
+    "type": "short",
+    "category": "Daniel Chapter 5",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 5:11–12: Daniel was described as a man with an excellent spirit, knowledge, understanding and the ability to interpret difficult matters. What does an excellent spirit look like in the life of a young person today?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 5:11–12",
+    "answered": false
   },
   {
-    id: 'q11',
-    type: 'mcq',
-    category: 'Daniel Ch. 2',
-    points: 15,
-    timer: 30,
-    prompt: 'What did the stone that smote the image become after breaking the iron, clay, brass, silver, and gold to pieces?',
-    options: [
-      'A river of fire filling the earth',
-      'A great mountain that filled the whole earth',
-      'A golden temple in Jerusalem',
-      'A pillar of cloud reaching to heaven'
-    ],
-    correctIndex: 1,
-    answer: 'A great mountain that filled the whole earth',
-    reference: 'Daniel 2:35 — "...and the stone that smote the image became a great mountain, and filled the whole earth."',
-    answered: false
+    "id": "q10",
+    "type": "short",
+    "category": "Daniel Chapter 5",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 5:22–23: Belshazzar knew the history of Nebuchadnezzar but failed to learn from it. What dangers do young people face when they ignore the lessons of those who have gone ahead of them?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 5:22–23",
+    "answered": false
   },
   {
-    id: 'q12',
-    type: 'short',
-    category: 'Daniel Ch. 2',
-    points: 15,
-    timer: 30,
-    prompt: 'After Daniel interpreted the dream in Chapter 2, the king made him ruler over the whole province of Babylon and what other position over all the wise men?',
-    options: [],
-    correctIndex: 0,
-    answer: 'Chief of the governors over all the wise men of Babylon',
-    reference: 'Daniel 2:48 — "Then the king made Daniel a great man... and made him ruler over the whole province of Babylon, and chief of the governors over all the wise men of Babylon."',
-    answered: false
-  },
-
-  // --- CHAPTER 3: THE GOLDEN IMAGE & FIERY FURNACE (Q13 - Q17) ---
-  {
-    id: 'q13',
-    type: 'mcq',
-    category: 'Daniel Ch. 3',
-    points: 15,
-    timer: 30,
-    prompt: 'What were the dimensions (height and breadth) and location of the image of gold that King Nebuchadnezzar set up in Daniel chapter 3?',
-    options: [
-      '30 cubits high, 3 cubits broad, in the valley of Kidron',
-      '60 cubits high, 6 cubits broad, in the plain of Dura',
-      '50 cubits high, 5 cubits broad, in the plain of Shinar',
-      '100 cubits high, 10 cubits broad, before the palace gate'
-    ],
-    correctIndex: 1,
-    answer: '60 cubits high, 6 cubits broad, in the plain of Dura',
-    reference: 'Daniel 3:1 — "Nebuchadnezzar the king made an image of gold, whose height was threescore cubits, and the breadth thereof six cubits: he set it up in the plain of Dura..."',
-    answered: false
+    "id": "q11",
+    "type": "short",
+    "category": "Daniel Chapter 3",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 3:16–18: Shadrach, Meshach and Abednego refused to bow to Nebuchadnezzar's golden image, even when threatened with death. What does their response teach youths about standing firm in their faith despite peer pressure and societal expectations?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 3:16–18",
+    "answered": false
   },
   {
-    id: 'q14',
-    type: 'mcq',
-    category: 'Daniel Ch. 3',
-    points: 10,
-    timer: 25,
-    prompt: 'How many times hotter than it was wont to be heated did Nebuchadnezzar command the burning fiery furnace to be heated?',
-    options: ['Three times hotter', 'Five times hotter', 'Seven times hotter', 'Ten times hotter'],
-    correctIndex: 2,
-    answer: 'Seven times hotter',
-    reference: 'Daniel 3:19 — "...commanded that they should heat the furnace one seven times more than it was wont to be heated."',
-    answered: false
+    "id": "q12",
+    "type": "short",
+    "category": "Daniel Chapter 3",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 3:25–27: The three Hebrew young men came out of the fiery furnace without harm. What does this account teach about God's presence, preservation and faithfulness during difficult seasons?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 3:25–27",
+    "answered": false
   },
   {
-    id: 'q15',
-    type: 'short',
-    category: 'Daniel Ch. 3',
-    points: 15,
-    timer: 30,
-    prompt: 'What happened to the mighty men of Nebuchadnezzar’s army who threw Shadrach, Meshach, and Abednego into the burning fiery furnace?',
-    options: [],
-    correctIndex: 0,
-    answer: 'The flame of the fire slew them',
-    reference: 'Daniel 3:22 — "...the flame of the fire slew those men that took up Shadrach, Meshach, and Abed-nego."',
-    answered: false
+    "id": "q13",
+    "type": "short",
+    "category": "Daniel Chapter 6",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 6:6–10: Daniel continued to pray despite the king's decree. What can young people learn about maintaining spiritual disciplines when obedience to God becomes unpopular or costly?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 6:6–10",
+    "answered": false
   },
   {
-    id: 'q16',
-    type: 'mcq',
-    category: 'Daniel Ch. 3',
-    points: 15,
-    timer: 30,
-    prompt: 'When Nebuchadnezzar looked into the furnace in astonishment, how did he describe the fourth man walking in the midst of the fire?',
-    options: [
-      'Like a mighty warrior with a flaming sword',
-      'Like the Son of God',
-      'Like the prophet of the Most High',
-      'Like a pillar of fire'
-    ],
-    correctIndex: 1,
-    answer: 'Like the Son of God',
-    reference: 'Daniel 3:25 — "Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God."',
-    answered: false
+    "id": "q14",
+    "type": "short",
+    "category": "Daniel Chapter 6",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 6:16–23: Daniel's commitment to God brought him into the lions' den, yet God delivered him. How can youths develop courage to remain faithful when their convictions expose them to ridicule, rejection or persecution?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 6:16–23",
+    "answered": false
   },
   {
-    id: 'q17',
-    type: 'short',
-    category: 'Daniel Ch. 3',
-    points: 20,
-    timer: 35,
-    prompt: 'When Shadrach, Meshach, and Abednego came forth out of the fire, name at least TWO of the four signs mentioned in Daniel 3:27 showing the fire had no power upon their bodies.',
-    options: [],
-    correctIndex: 0,
-    answer: '(1) Not a hair of their head was singed, (2) Neither were their coats changed, (3) Nor the smell of fire had passed on them, (4) The fire had no power upon their bodies.',
-    reference: 'Daniel 3:27 — "...upon whose bodies the fire had no power, nor was an hair of their head singed, neither were their coats changed, nor the smell of fire had passed on them."',
-    answered: false
-  },
-
-  // --- CHAPTER 4: THE GREAT TREE & NEBUCHADNEZZAR'S HUMBLING (Q18 - Q21) ---
-  {
-    id: 'q18',
-    type: 'mcq',
-    category: 'Daniel Ch. 4',
-    points: 15,
-    timer: 30,
-    prompt: 'In Nebuchadnezzar’s second dream (Daniel 4), what did he see in the midst of the earth whose height reached unto heaven?',
-    options: [
-      'A tower of brass and iron',
-      'A tree of great height',
-      'A mountain of fire',
-      'A golden ladder'
-    ],
-    correctIndex: 1,
-    answer: 'A tree of great height',
-    reference: 'Daniel 4:10–11 — "I saw, and behold a tree in the midst of the earth, and the height thereof was great. The tree grew, and was strong, and the height thereof reached unto heaven..."',
-    answered: false
+    "id": "q15",
+    "type": "short",
+    "category": "Daniel Chapters 1 & 6",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 1:8 and Daniel 6:10: What connection exists between Daniel's private convictions and his public victories? Why is it important for young people to develop character when nobody is watching?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 1:8 and Daniel 6:10",
+    "answered": false
   },
   {
-    id: 'q19',
-    type: 'short',
-    category: 'Daniel Ch. 4',
-    points: 15,
-    timer: 30,
-    prompt: 'In Daniel 4:15, although the tree was to be hewn down, its stump of roots was to be left in the earth bound with a band of what two metals?',
-    options: [],
-    correctIndex: 0,
-    answer: 'Iron and Brass',
-    reference: 'Daniel 4:15 — "Nevertheless leave the stump of his roots in the earth, even with a band of iron and brass, in the tender grass of the field..."',
-    answered: false
+    "id": "q16",
+    "type": "short",
+    "category": "Daniel Chapter 1",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 1:6–7: Daniel and his friends were given new names in Babylon. What does this teach about protecting one's identity, values and godly heritage while adapting to a different culture or environment?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 1:6–7",
+    "answered": false
   },
   {
-    id: 'q20',
-    type: 'mcq',
-    category: 'Daniel Ch. 4',
-    points: 15,
-    timer: 30,
-    prompt: 'How many "times" (years) were decreed to pass over Nebuchadnezzar while he was driven from men and ate grass as oxen?',
-    options: ['Three times', 'Five times', 'Seven times', 'Twelve times'],
-    correctIndex: 2,
-    answer: 'Seven times',
-    reference: 'Daniel 4:25 — "...and they shall wet thee with the dew of heaven, and seven times shall pass over thee, till thou know that the most High ruleth in the kingdom of men..."',
-    answered: false
+    "id": "q17",
+    "type": "short",
+    "category": "Daniel Chapter 2",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 2:48–49: Daniel used his position to secure opportunities for his friends. What does this teach young people about servant leadership, friendship and using influence to lift others?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 2:48–49",
+    "answered": false
   },
   {
-    id: 'q21',
-    type: 'short',
-    category: 'Daniel Ch. 4',
-    points: 20,
-    timer: 30,
-    prompt: 'How many months after Daniel interpreted the dream of the tree did the judgment actually fall upon Nebuchadnezzar as he walked in the palace of the kingdom of Babylon?',
-    options: [],
-    correctIndex: 0,
-    answer: 'At the end of twelve months (12 months)',
-    reference: 'Daniel 4:29–31 — "At the end of twelve months he walked in the palace of the kingdom of Babylon... While the word was in the king’s mouth, there fell a voice from heaven..."',
-    answered: false
-  },
-
-  // --- CHAPTER 5: BELSHAZZAR'S FEAST & HANDWRITING ON THE WALL (Q22 - Q26) ---
-  {
-    id: 'q22',
-    type: 'mcq',
-    category: 'Daniel Ch. 5',
-    points: 10,
-    timer: 25,
-    prompt: 'To how many of his lords did King Belshazzar make a great feast, drinking wine out of the golden and silver vessels taken from the temple in Jerusalem?',
-    options: ['Three hundred lords', 'Five hundred lords', 'A thousand of his lords', 'Two thousand lords'],
-    correctIndex: 2,
-    answer: 'A thousand of his lords',
-    reference: 'Daniel 5:1 — "Belshazzar the king made a great feast to a thousand of his lords, and drank wine before the thousand."',
-    answered: false
+    "id": "q18",
+    "type": "short",
+    "category": "Daniel Chapter 9",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 9:2–3: Daniel studied the Scriptures and responded to his discoveries with prayer and fasting. What does this teach about the importance of studying God's Word and allowing knowledge to produce spiritual action?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 9:2–3",
+    "answered": false
   },
   {
-    id: 'q23',
-    type: 'short',
-    category: 'Daniel Ch. 5',
-    points: 20,
-    timer: 35,
-    prompt: 'State the exact four words written by the fingers of a man’s hand upon the plaster of the wall of King Belshazzar’s palace.',
-    options: [],
-    correctIndex: 0,
-    answer: 'MENE, MENE, TEKEL, UPHARSIN',
-    reference: 'Daniel 5:25 — "And this is the writing that was written, MENE, MENE, TEKEL, UPHARSIN."',
-    answered: false
+    "id": "q19",
+    "type": "short",
+    "category": "Daniel Chapter 9",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 9:4–19: Daniel identified with the sins of his people and interceded for them. What can today's youths learn about responsibility, compassion and becoming part of the solution to societal problems?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 9:4–19",
+    "answered": false
   },
   {
-    id: 'q24',
-    type: 'mcq',
-    category: 'Daniel Ch. 5',
-    points: 15,
-    timer: 30,
-    prompt: 'What reward did Belshazzar promise to whosoever should read the writing on the wall and show its interpretation?',
-    options: [
-      'Clothed with scarlet, a chain of gold about his neck, and made the third ruler in the kingdom',
-      'Half of the kingdom and the king’s daughter in marriage',
-      'Ten talents of gold and chief captain of the army',
-      'Ruler over all the provinces of Media and Persia'
-    ],
-    correctIndex: 0,
-    answer: 'Clothed with scarlet, a chain of gold about his neck, and made the third ruler in the kingdom',
-    reference: 'Daniel 5:7 — "...whosoever shall read this writing, and shew me the interpretation thereof, shall be clothed with scarlet, and have a chain of gold about his neck, and shall be the third ruler in the kingdom."',
-    answered: false
-  },
-  {
-    id: 'q25',
-    type: 'short',
-    category: 'Daniel Ch. 5',
-    points: 20,
-    timer: 35,
-    prompt: 'What is the exact interpretation of the word "TEKEL" given by Daniel to Belshazzar?',
-    options: [],
-    correctIndex: 0,
-    answer: 'Thou art weighed in the balances, and art found wanting',
-    reference: 'Daniel 5:27 — "TEKEL; Thou art weighed in the balances, and art found wanting."',
-    answered: false
-  },
-  {
-    id: 'q26',
-    type: 'mcq',
-    category: 'Daniel Ch. 5',
-    points: 15,
-    timer: 30,
-    prompt: 'On the very night that Belshazzar king of the Chaldeans was slain, who took the kingdom, and how old was he?',
-    options: [
-      'Cyrus the Persian, being about 50 years old',
-      'Darius the Median, being about threescore and two (62) years old',
-      'Artaxerxes the Mede, being about 40 years old',
-      'Ahasuerus, being about 70 years old'
-    ],
-    correctIndex: 1,
-    answer: 'Darius the Median, being about threescore and two (62) years old',
-    reference: 'Daniel 5:30–31 — "In that night was Belshazzar the king of the Chaldeans slain. And Darius the Median took the kingdom, being about threescore and two years old."',
-    answered: false
-  },
-
-  // --- CHAPTER 6: DANIEL IN THE DEN OF LIONS (Q27 - Q31) ---
-  {
-    id: 'q27',
-    type: 'mcq',
-    category: 'Daniel Ch. 6',
-    points: 10,
-    timer: 25,
-    prompt: 'In Daniel chapter 6, how many princes did it please King Darius to set over the whole kingdom, with three presidents over them (of whom Daniel was first)?',
-    options: ['70 princes', '100 princes', '120 princes', '127 princes'],
-    correctIndex: 2,
-    answer: '120 princes',
-    reference: 'Daniel 6:1–2 — "It pleased Darius to set over the kingdom an hundred and twenty princes, which should be over the whole kingdom; And over these three presidents; of whom Daniel was first..."',
-    answered: false
-  },
-  {
-    id: 'q28',
-    type: 'short',
-    category: 'Daniel Ch. 6',
-    points: 15,
-    timer: 30,
-    prompt: 'Why was Daniel preferred above the presidents and princes so that the king thought to set him over the whole realm?',
-    options: [],
-    correctIndex: 0,
-    answer: 'Because an excellent spirit was in him',
-    reference: 'Daniel 6:3 — "Then this Daniel was preferred above the presidents and princes, because an excellent spirit was in him; and the king thought to set him over the whole realm."',
-    answered: false
-  },
-  {
-    id: 'q29',
-    type: 'mcq',
-    category: 'Daniel Ch. 6',
-    points: 10,
-    timer: 25,
-    prompt: 'For how many days did the royal statute decree that whosoever asked a petition of any god or man, save of King Darius, should be cast into the den of lions?',
-    options: ['7 days', '10 days', '21 days', '30 days'],
-    correctIndex: 3,
-    answer: '30 days',
-    reference: 'Daniel 6:7 — "...that whosoever shall ask a petition of any God or man for thirty days, save of thee, O king, he shall be cast into the den of lions."',
-    answered: false
-  },
-  {
-    id: 'q30',
-    type: 'short',
-    category: 'Daniel Ch. 6',
-    points: 15,
-    timer: 30,
-    prompt: 'When Daniel knew that the writing was signed, toward which city were his chamber windows open as he kneeled upon his knees three times a day to pray and give thanks?',
-    options: [],
-    correctIndex: 0,
-    answer: 'Jerusalem',
-    reference: 'Daniel 6:10 — "Now when Daniel knew that the writing was signed, he went into his house; and his windows being open in his chamber toward Jerusalem, he kneeled upon his knees three times a day, and prayed, and gave thanks before his God, as he did aforetime."',
-    answered: false
-  },
-  {
-    id: 'q31',
-    type: 'mcq',
-    category: 'Daniel Ch. 6',
-    points: 15,
-    timer: 30,
-    prompt: 'What did Daniel tell King Darius in the morning regarding how he was delivered in the lions’ den?',
-    options: [
-      '"I slew the lions with the strength of the Lord"',
-      '"My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me"',
-      '"The lions were asleep throughout the night"',
-      '"A wall of fire stood between me and the lions"'
-    ],
-    correctIndex: 1,
-    answer: '"My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me"',
-    reference: 'Daniel 6:22 — "My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me: forasmuch as before him innocency was found in me; and also before thee, O king, have I done no hurt."',
-    answered: false
-  },
-
-  // --- CHAPTER 7: VISION OF THE FOUR BEASTS & ANCIENT OF DAYS (Q32 - Q36) ---
-  {
-    id: 'q32',
-    type: 'mcq',
-    category: 'Daniel Ch. 7',
-    points: 15,
-    timer: 30,
-    prompt: 'In which year of which king did Daniel have his dream and visions of the four great beasts coming up from the sea in Chapter 7?',
-    options: [
-      'In the first year of Belshazzar king of Babylon',
-      'In the third year of Cyrus king of Persia',
-      'In the first year of Darius the Median',
-      'In the second year of Nebuchadnezzar'
-    ],
-    correctIndex: 0,
-    answer: 'In the first year of Belshazzar king of Babylon',
-    reference: 'Daniel 7:1 — "In the first year of Belshazzar king of Babylon Daniel had a dream and visions of his head upon his bed..."',
-    answered: false
-  },
-  {
-    id: 'q33',
-    type: 'short',
-    category: 'Daniel Ch. 7',
-    points: 20,
-    timer: 35,
-    prompt: 'Describe the four beasts in Daniel chapter 7 in order (1st, 2nd, 3rd, and 4th).',
-    options: [],
-    correctIndex: 0,
-    answer: '1st: Lion with eagle’s wings; 2nd: Bear with 3 ribs in its mouth; 3rd: Leopard with 4 wings and 4 heads; 4th: Dreadful and terrible beast with great iron teeth and 10 horns',
-    reference: 'Daniel 7:4–7 — "The first was like a lion, and had eagle’s wings... a second, like to a bear... another, like a leopard... a fourth beast, dreadful and terrible, and strong exceedingly; and it had great iron teeth... and it had ten horns."',
-    answered: false
-  },
-  {
-    id: 'q34',
-    type: 'mcq',
-    category: 'Daniel Ch. 7',
-    points: 15,
-    timer: 30,
-    prompt: 'In Daniel 7:8, as Daniel considered the ten horns of the fourth beast, there came up among them another "little horn" before whom how many of the first horns were plucked up by the roots?',
-    options: ['Two horns', 'Three horns', 'Four horns', 'Five horns'],
-    correctIndex: 1,
-    answer: 'Three horns',
-    reference: 'Daniel 7:8 — "I considered the horns, and, behold, there came up among them another little horn, before whom there were three of the first horns plucked up by the roots..."',
-    answered: false
-  },
-  {
-    id: 'q35',
-    type: 'short',
-    category: 'Daniel Ch. 7',
-    points: 15,
-    timer: 30,
-    prompt: 'In Daniel 7:9, by what title is God described when the thrones were cast down, whose garment was white as snow and the hair of His head like the pure wool?',
-    options: [],
-    correctIndex: 0,
-    answer: 'The Ancient of days',
-    reference: 'Daniel 7:9 — "I beheld till the thrones were cast down, and the Ancient of days did sit, whose garment was white as snow, and the hair of his head like the pure wool..."',
-    answered: false
-  },
-  {
-    id: 'q36',
-    type: 'mcq',
-    category: 'Daniel Ch. 7',
-    points: 20,
-    timer: 35,
-    prompt: 'In Daniel 7:25, for how long shall the saints be given into the hand of the little horn who speaks great words against the Most High and thinks to change times and laws?',
-    options: [
-      'A time and times and the dividing of time',
-      'Seventy weeks of years',
-      'Forty and two years',
-      'Seven thousand days'
-    ],
-    correctIndex: 0,
-    answer: 'A time and times and the dividing of time',
-    reference: 'Daniel 7:25 — "...and they shall be given into his hand until a time and times and the dividing of time."',
-    answered: false
-  },
-
-  // --- CHAPTER 8: THE RAM AND THE HE-GOAT (Q37 - Q40) ---
-  {
-    id: 'q37',
-    type: 'mcq',
-    category: 'Daniel Ch. 8',
-    points: 15,
-    timer: 30,
-    prompt: 'In Daniel chapter 8, while Daniel was in the vision at Shushan in the palace, by which river was he standing?',
-    options: ['The river Hiddekel', 'The river of Ulai', 'The river Chebar', 'The river Euphrates'],
-    correctIndex: 1,
-    answer: 'The river of Ulai',
-    reference: 'Daniel 8:2 — "...I was at Shushan in the palace, which is in the province of Elam; and I saw in a vision, and I was by the river of Ulai."',
-    answered: false
-  },
-  {
-    id: 'q38',
-    type: 'short',
-    category: 'Daniel Ch. 8',
-    points: 20,
-    timer: 35,
-    prompt: 'According to the angel’s interpretation in Daniel 8:20–21, which kingdoms do the two-horned RAM and the rough HE-GOAT represent?',
-    options: [],
-    correctIndex: 0,
-    answer: 'The Ram = Kings of Media and Persia; The Rough Goat = King of Grecia (Greece)',
-    reference: 'Daniel 8:20–21 — "The ram which thou sawest having two horns are the kings of Media and Persia. And the rough goat is the king of Grecia: and the great horn that is between his eyes is the first king."',
-    answered: false
-  },
-  {
-    id: 'q39',
-    type: 'mcq',
-    category: 'Daniel Ch. 8',
-    points: 20,
-    timer: 35,
-    prompt: 'In Daniel 8:14, unto how many days was the vision concerning the daily sacrifice and the transgression of desolation before the sanctuary shall be cleansed?',
-    options: [
-      '1,260 days',
-      '2,300 days (Two thousand and three hundred days)',
-      '1,335 days',
-      '700 days'
-    ],
-    correctIndex: 1,
-    answer: '2,300 days (Two thousand and three hundred days)',
-    reference: 'Daniel 8:14 — "And he said unto me, Unto two thousand and three hundred days; then shall the sanctuary be cleansed."',
-    answered: false
-  },
-  {
-    id: 'q40',
-    type: 'short',
-    category: 'Daniel Ch. 8',
-    points: 15,
-    timer: 25,
-    prompt: 'Which angel was commanded by a man’s voice between the banks of Ulai to "make this man to understand the vision" in Daniel 8:16?',
-    options: [],
-    correctIndex: 0,
-    answer: 'Gabriel',
-    reference: 'Daniel 8:16 — "And I heard a man’s voice between the banks of Ulai, which called, and said, Gabriel, make this man to understand the vision."',
-    answered: false
-  },
-
-  // --- CHAPTER 9: DANIEL'S PRAYER & THE SEVENTY WEEKS (Q41 - Q44) ---
-  {
-    id: 'q41',
-    type: 'mcq',
-    category: 'Daniel Ch. 9',
-    points: 15,
-    timer: 30,
-    prompt: 'In Daniel 9:2, by studying the books of which prophet did Daniel understand that God would accomplish 70 years in the desolations of Jerusalem?',
-    options: ['Isaiah', 'Jeremiah', 'Ezekiel', 'Hosea'],
-    correctIndex: 1,
-    answer: 'Jeremiah',
-    reference: 'Daniel 9:2 — "...I Daniel understood by books the number of the years, whereof the word of the LORD came to Jeremiah the prophet, that he would accomplish seventy years in the desolations of Jerusalem."',
-    answered: false
-  },
-  {
-    id: 'q42',
-    type: 'short',
-    category: 'Daniel Ch. 9',
-    points: 15,
-    timer: 30,
-    prompt: 'At what time of the day did the man Gabriel touch Daniel while he was speaking in prayer in Daniel 9:21?',
-    options: [],
-    correctIndex: 0,
-    answer: 'About the time of the evening oblation (evening sacrifice)',
-    reference: 'Daniel 9:21 — "Yea, whiles I was speaking in prayer, even the man Gabriel, whom I had seen in the vision at the beginning, being caused to fly swiftly, touched me about the time of the evening oblation."',
-    answered: false
-  },
-  {
-    id: 'q43',
-    type: 'mcq',
-    category: 'Daniel Ch. 9',
-    points: 20,
-    timer: 35,
-    prompt: 'According to Daniel 9:24, how many "weeks" are determined upon Daniel’s people and upon his holy city to finish the transgression and make an end of sins?',
-    options: ['Seven weeks', 'Sixty-two weeks', 'Seventy weeks', 'One hundred weeks'],
-    correctIndex: 2,
-    answer: 'Seventy weeks',
-    reference: 'Daniel 9:24 — "Seventy weeks are determined upon thy people and upon thy holy city, to finish the transgression, and to make an end of sins..."',
-    answered: false
-  },
-  {
-    id: 'q44',
-    type: 'short',
-    category: 'Daniel Ch. 9',
-    points: 20,
-    timer: 35,
-    prompt: 'In Daniel 9:25–26, how are the 69 weeks preceding the cutting off of Messiah the Prince divided?',
-    options: [],
-    correctIndex: 0,
-    answer: 'Seven weeks, and threescore and two weeks (7 weeks + 62 weeks)',
-    reference: 'Daniel 9:25–26 — "...unto the Messiah the Prince shall be seven weeks, and threescore and two weeks... And after threescore and two weeks shall Messiah be cut off, but not for himself..."',
-    answered: false
-  },
-
-  // --- CHAPTERS 10, 11 & 12: FINAL VISIONS, SPIRITUAL WARFARE & END TIMES (Q45 - Q50) ---
-  {
-    id: 'q45',
-    type: 'mcq',
-    category: 'Daniel Ch. 10–12',
-    points: 15,
-    timer: 30,
-    prompt: 'In Daniel chapter 10, for how long was Daniel mourning, eating no pleasant bread, neither came flesh nor wine in his mouth?',
-    options: ['Ten days', 'Three full weeks (21 days)', 'Forty days', 'Seven weeks'],
-    correctIndex: 1,
-    answer: 'Three full weeks (21 days)',
-    reference: 'Daniel 10:2–3 — "In those days I Daniel was mourning three full weeks. I ate no pleasant bread, neither came flesh nor wine in my mouth..."',
-    answered: false
-  },
-  {
-    id: 'q46',
-    type: 'short',
-    category: 'Daniel Ch. 10–12',
-    points: 15,
-    timer: 30,
-    prompt: 'By the side of which great river was Daniel in Daniel 10:4 when he saw the vision of the man clothed in linen, whose loins were girded with fine gold of Uphaz?',
-    options: [],
-    correctIndex: 0,
-    answer: 'The great river Hiddekel (Tigris)',
-    reference: 'Daniel 10:4 — "And in the four and twentieth day of the first month, as I was by the side of the great river, which is Hiddekel..."',
-    answered: false
-  },
-  {
-    id: 'q47',
-    type: 'mcq',
-    category: 'Daniel Ch. 10–12',
-    points: 15,
-    timer: 30,
-    prompt: 'In Daniel 10:13, when the prince of the kingdom of Persia withstood the heavenly messenger one and twenty days, which chief prince came to help him?',
-    options: ['Gabriel', 'Michael', 'Raphael', 'Uriel'],
-    correctIndex: 1,
-    answer: 'Michael',
-    reference: 'Daniel 10:13 — "But the prince of the kingdom of Persia withstood me one and twenty days: but, lo, Michael, one of the chief princes, came to help me..."',
-    answered: false
-  },
-  {
-    id: 'q48',
-    type: 'short',
-    category: 'Daniel Ch. 10–12',
-    points: 25,
-    timer: 35,
-    prompt: 'Complete Daniel 11:32 — "And such as do wickedly against the covenant shall he corrupt by flatteries: but the people that do know their God shall be ____________, and do ____________."',
-    options: [],
-    correctIndex: 0,
-    answer: 'Strong, and do exploits',
-    reference: 'Daniel 11:32 — "...but the people that do know their God shall be strong, and do exploits."',
-    answered: false
-  },
-  {
-    id: 'q49',
-    type: 'mcq',
-    category: 'Daniel Ch. 10–12',
-    points: 20,
-    timer: 30,
-    prompt: 'According to Daniel 12:3, how shall "they that be wise" and "they that turn many to righteousness" shine?',
-    options: [
-      'As the brightness of the firmament, and as the stars for ever and ever',
-      'As the morning sun and the full moon',
-      'As burning lamps before the throne of God',
-      'As gold refined seven times in the furnace'
-    ],
-    correctIndex: 0,
-    answer: 'As the brightness of the firmament, and as the stars for ever and ever',
-    reference: 'Daniel 12:3 — "And they that be wise shall shine as the brightness of the firmament; and they that turn many to righteousness as the stars for ever and ever."',
-    answered: false
-  },
-  {
-    id: 'q50',
-    type: 'short',
-    category: 'Daniel Ch. 10–12',
-    points: 25,
-    timer: 35,
-    prompt: 'In Daniel 12:11–12, what two specific numbers of days are mentioned from the time that the daily sacrifice shall be taken away and the abomination that maketh desolate set up, and for him that waiteth?',
-    options: [],
-    correctIndex: 0,
-    answer: '1,290 days and 1,335 days (A thousand two hundred and ninety days; and a thousand three hundred and five and thirty days)',
-    reference: 'Daniel 12:11–12 — "...there shall be a thousand two hundred and ninety days. Blessed is he that waiteth, and cometh to the thousand three hundred and five and thirty days."',
-    answered: false
+    "id": "q20",
+    "type": "short",
+    "category": "Daniel Chapter 12",
+    "points": 10,
+    "timer": 90,
+    "prompt": "Daniel 12:3: The Bible declares that those who turn many to righteousness will shine like the stars forever. What kind of legacy should young people desire to leave, and how can they use their gifts, education, influence and opportunities to make an eternal impact?",
+    "options": [],
+    "correctIndex": 0,
+    "answer": "Open-ended discussion. Award marks for a clear, relevant, scripture-based response.",
+    "reference": "Daniel 12:3",
+    "answered": false
   }
 ];
 
@@ -758,7 +288,7 @@ const DEFAULT_CONTENDERS = [
 const DEFAULT_SETTINGS = {
   orgName: 'DLSO BENIN REGION',
   gameTitle: 'DANIEL ON THE WHEELS',
-  gameSubtitle: '50-Question Book of Daniel Quiz & Wheel Challenge',
+  gameSubtitle: '20 Youth Discussion Questions from the Book of Daniel',
   customLogoDataUrl: '',
   removeAnsweredFromWheel: true,
   includeSpecialWedges: true,
@@ -769,6 +299,24 @@ const DEFAULT_SETTINGS = {
   supabaseUrl: 'https://mrubxczyfxhgfvkpzaxq.supabase.co',
   supabaseAnonKey: ''
 };
+
+const LEGACY_DEFAULT_SUBTITLE = '50-Question Book of Daniel Quiz & Wheel Challenge';
+const LEGACY_FIRST_QUESTION_PROMPT = 'In the third year of the reign of which king of Judah did Nebuchadnezzar king of Babylon come unto Jerusalem and besiege it?';
+const DEFAULT_QUESTION_SUBTITLE = '20 Youth Discussion Questions from the Book of Daniel';
+
+function isLegacyDefaultQuestionBank(questions) {
+  return Array.isArray(questions) && questions.length === 50 &&
+    questions[0]?.id === 'q1' && questions[0]?.prompt === LEGACY_FIRST_QUESTION_PROMPT;
+}
+
+function replaceLegacyDefaultQuestionBank() {
+  if (!isLegacyDefaultQuestionBank(state.questions)) return false;
+  state.questions = cloneData(DEFAULT_QUESTIONS);
+  if (state.settings.gameSubtitle === LEGACY_DEFAULT_SUBTITLE) {
+    state.settings.gameSubtitle = DEFAULT_QUESTION_SUBTITLE;
+  }
+  return true;
+}
 
 // Wheel Color Palette (DLSO Royal Theme — 6 rich alternating colors)
 const SLICE_PALETTE = [
@@ -982,6 +530,8 @@ function loadState() {
     state.activeContenderId = state.contenders[0]?.id || null;
   }
 
+  if (replaceLegacyDefaultQuestionBank()) saveState();
+
   // Pull live data from Supabase PostgreSQL backend if running on Netlify or local Node server
   syncFromSupabaseCloud();
 }
@@ -989,6 +539,7 @@ function loadState() {
 async function syncFromSupabaseCloud() {
   const sbUrl = (state.settings.supabaseUrl || 'https://mrubxczyfxhgfvkpzaxq.supabase.co').replace(/\/$/, '');
   const sbKey = (state.settings.supabaseAnonKey || '').trim();
+  let migratedQuestionBank = false;
 
   // 1. Direct Browser-to-Supabase PostgREST sync (Works on Netlify Drag-and-Drop & file://)
   if (sbKey) {
@@ -1024,6 +575,7 @@ async function syncFromSupabaseCloud() {
           reference: r.reference || '',
           answered: Boolean(r.answered)
         }));
+        migratedQuestionBank = replaceLegacyDefaultQuestionBank();
       }
 
       if (Array.isArray(cRows) && cRows.length > 0) {
@@ -1045,6 +597,9 @@ async function syncFromSupabaseCloud() {
           supabaseUrl: sbUrl,
           supabaseAnonKey: sbKey
         };
+        if (migratedQuestionBank && state.settings.gameSubtitle === LEGACY_DEFAULT_SUBTITLE) {
+          state.settings.gameSubtitle = DEFAULT_QUESTION_SUBTITLE;
+        }
         state.activeContenderId = sRows[0].active_contender_id || state.contenders[0]?.id || null;
       }
 
@@ -1059,6 +614,7 @@ async function syncFromSupabaseCloud() {
       );
       renderAll();
       setCloudBadge(`☁️ Supabase Live (${state.questions.length} Qs)`, '#34d399');
+      if (migratedQuestionBank) saveState();
       return;
     } catch (err) {
       console.warn('Direct Supabase REST sync error:', err.message);
@@ -1067,7 +623,7 @@ async function syncFromSupabaseCloud() {
 
   // 2. Serverless / Node API endpoint (/api/state)
   if (window.location.protocol === 'file:') {
-    setCloudBadge('💾 50 Qs Ready (Add Anon Key in Admin for Cloud)', '#fbbf24');
+    setCloudBadge(`💾 ${state.questions.length} Qs Ready (Add Anon Key in Admin for Cloud)`, '#fbbf24');
     return;
   }
   try {
@@ -1076,12 +632,16 @@ async function syncFromSupabaseCloud() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     if (data && data.ok && Array.isArray(data.questions) && data.questions.length > 0) {
-      state.questions = data.questions;
+      migratedQuestionBank = isLegacyDefaultQuestionBank(data.questions);
+      state.questions = migratedQuestionBank ? cloneData(DEFAULT_QUESTIONS) : data.questions;
       if (Array.isArray(data.contenders) && data.contenders.length > 0) {
         state.contenders = data.contenders;
       }
       if (data.settings && Object.keys(data.settings).length > 0) {
         state.settings = { ...DEFAULT_SETTINGS, ...data.settings };
+      }
+      if (migratedQuestionBank && state.settings.gameSubtitle === LEGACY_DEFAULT_SUBTITLE) {
+        state.settings.gameSubtitle = DEFAULT_QUESTION_SUBTITLE;
       }
       state.activeContenderId = data.activeContenderId || state.contenders[0]?.id || null;
       localStorage.setItem(
@@ -1095,10 +655,11 @@ async function syncFromSupabaseCloud() {
       );
       renderAll();
       setCloudBadge(`☁️ Supabase Connected (${state.questions.length} Qs)`, '#34d399');
+      if (migratedQuestionBank) saveState();
     }
   } catch (err) {
     console.warn('Supabase cloud fetch fallback to localStorage:', err.message);
-    setCloudBadge(`💾 50 Qs Ready (Add Anon Key in Admin for Cloud)`, '#fbbf24');
+    setCloudBadge(`💾 ${state.questions.length} Qs Ready (Add Anon Key in Admin for Cloud)`, '#fbbf24');
   }
 }
 
@@ -1163,12 +724,22 @@ function saveState() {
           color: c.color || '#e61919',
           updated_at: new Date().toISOString()
         }));
+        const keepQuestionIds = qRows
+          .map((q) => `"${String(q.id).replace(/"/g, '\\"')}"`)
+          .join(',');
+        const staleQuestionFilter = qRows.length
+          ? `not.in.(${keepQuestionIds})`
+          : 'not.is.null';
 
-        await Promise.all([
+        const responses = await Promise.all([
           fetch(`${sbUrl}/rest/v1/dlso_questions`, {
             method: 'POST',
             headers,
             body: JSON.stringify(qRows)
+          }),
+          fetch(`${sbUrl}/rest/v1/dlso_questions?id=${encodeURIComponent(staleQuestionFilter)}`, {
+            method: 'DELETE',
+            headers
           }),
           fetch(`${sbUrl}/rest/v1/dlso_contenders`, {
             method: 'POST',
@@ -1188,6 +759,9 @@ function saveState() {
             ])
           })
         ]);
+
+        const failedResponse = responses.find((response) => !response.ok);
+        if (failedResponse) throw new Error(`Supabase REST save failed (HTTP ${failedResponse.status})`);
 
         setCloudBadge(`☁️ Supabase Saved ✓ (${state.questions.length} Qs)`, '#34d399');
         return;
@@ -1213,7 +787,7 @@ function saveState() {
         throw new Error(data.error || 'Save failed');
       }
     } catch (err) {
-      setCloudBadge('💾 Saved Locally (50 Qs)', '#fbbf24');
+      setCloudBadge(`💾 Saved Locally (${state.questions.length} Qs)`, '#fbbf24');
     }
   }, 350);
 }
@@ -1358,7 +932,7 @@ function drawWheel() {
     ctx.fillText('ALL QUESTIONS COMPLETED!', cx, cy - 70);
     ctx.fillStyle = '#cbd5e1';
     ctx.font = '600 16px Inter, sans-serif';
-    ctx.fillText('Click "Restore All Questions" or change filter', cx, cy + 85);
+    ctx.fillText('Click "Restore Taken Questions" or change filter', cx, cy + 85);
     return;
   }
 
@@ -1465,7 +1039,7 @@ function spinWheel() {
   if (state.isSpinning) return;
   const slices = getWheelSlices();
   if (slices.length === 0) {
-    showToast('No unanswered questions on the wheel! Click "Restore All Questions" or adjust filter.');
+    showToast('No unanswered questions on the wheel! Click "Restore Taken Questions" or adjust the filter.');
     return;
   }
 
@@ -1913,7 +1487,7 @@ function renderBrandingAndHeader() {
   document.getElementById('orgTitleDisplay').textContent = state.settings.orgName || 'DLSO BENIN REGION';
   document.getElementById('gameTitleDisplay').textContent = state.settings.gameTitle || 'DANIEL ON THE WHEELS';
   document.getElementById('gameSubtitleDisplay').textContent =
-    state.settings.gameSubtitle || '50-Question Book of Daniel Quiz & Wheel Challenge';
+    state.settings.gameSubtitle || DEFAULT_QUESTION_SUBTITLE;
 
   const soundBtn = document.getElementById('btnToggleSound');
   if (soundBtn) {
@@ -2026,7 +1600,7 @@ function renderCategoryFilterOptions() {
   const categories = Array.from(new Set(state.questions.map((q) => q.category).filter(Boolean)));
   const current = state.categoryFilter;
 
-  select.innerHTML = '<option value="ALL">All Chapters (50 Questions)</option>';
+  select.innerHTML = `<option value="ALL">All Chapters (${state.questions.length} Questions)</option>`;
   categories.forEach((cat) => {
     const opt = document.createElement('option');
     opt.value = cat;
@@ -2637,7 +2211,7 @@ function initEvents() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'dlso-benin-50-daniel-questions.json';
+    a.download = 'dlso-benin-20-youth-discussion-questions.json';
     a.click();
     URL.revokeObjectURL(url);
   });
@@ -2670,7 +2244,7 @@ function initEvents() {
     saveState();
     renderAll();
     renderAdminPortal();
-    showToast('Loaded all 50 Book of Daniel Questions!');
+    showToast(`Loaded all ${state.questions.length} default discussion questions!`);
   });
 
   document.getElementById('btnCancelEditContender').addEventListener('click', resetContenderForm);

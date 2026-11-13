@@ -1,5 +1,5 @@
 /**
- * DLSO Benin Region — Supabase PostgreSQL Schema & 50 Book of Daniel Questions Seeder
+ * DLSO Benin Region — Supabase PostgreSQL Schema & 20 Youth Discussion Questions Seeder
  */
 const { Client } = require('pg');
 const fs = require('fs');
@@ -135,6 +135,16 @@ async function main() {
     `);
 
     console.log(`Uploading all ${questions.length} Book of Daniel questions to Supabase...`);
+    const keepQuestionIds = questions.map((question) => question.id);
+    if (keepQuestionIds.length > 0) {
+      await client.query(
+        'DELETE FROM public.dlso_questions WHERE NOT (id = ANY($1::text[]))',
+        [keepQuestionIds]
+      );
+    } else {
+      await client.query('DELETE FROM public.dlso_questions');
+    }
+
     for (let i = 0; i < questions.length; i++) {
       const q = questions[i];
       await client.query(

@@ -11,26 +11,26 @@ A DLSO game on the Book of Daniel.
 
 **Daniel on the Wheels** is a broadcast-style, projector-ready Christian Quiz Game Show application designed for student outreaches, regional Bible competitions, youth camps, and fellowship quiz events across the **DLSO Benin Region**.
 
-The Game Show Host spins an interactive wheel loaded with **up to 50+ Bible questions** (plus special game show wedges). When the wheel lands on a slice, the **Question Stage Box** directly beneath the wheel opens with a countdown timer, interactive **Multiple Choice (`A–D`)** or **Short Answer** display, official KJV Scripture verification, and one-click scoring controls for the contenders.
+The Game Show Host spins an interactive wheel loaded with **20 youth discussion questions** based on the Book of Daniel (plus special game show wedges). Each prompt invites an open-ended, scripture-based response, with a 90-second timer and one-click scoring controls for the contenders.
 
 ---
 
 ## ✨ Key Features
 
 ### 1. 🎡 High-Capacity Spinning Question Wheel
-- **Supports 50+ Questions Simultaneously:** Adaptive high-DPI HTML5 `<canvas>` (`760×760`) scales typography, gold rim pegs, and wedge dividers cleanly whether 5 or 53 slices are on the wheel.
+- **20 Youth Discussion Questions:** Covers conviction, integrity, excellence, courage, prayer, leadership, compassion, and lasting impact through Daniel's story.
 - **Physics & Audio Engine:** Quartic ease-out deceleration with Web Audio API synthesized peg ticks, fanfare chimes, urgent countdown beeps, and buzzers (zero external MP3 dependencies).
 - **Special Game Show Wedges:**
   - `🔥 2× MARKS` — Doubles the point value of the next question drawn.
   - `🎁 +5 BONUS` — Awards +5 free marks to the contender on the Hot Seat and grants another spin.
   - `🎡 FREE SPIN` — Grants an immediate extra spin.
-- **Smart Filtering:** Spin across all 50 questions at once, or filter the wheel by specific chapter (`Daniel Ch. 1` through `Daniel Ch. 10–12`) or format (`Multiple Choice Only` / `Short Answer Only`).
+- **Smart Filtering:** Spin across all questions or filter by the Daniel chapter connected to each discussion prompt.
 - **Auto-Removal of Answered Questions:** Answered questions are automatically removed from the wheel so the pointer only lands on fresh questions (can be restored with one click).
 
-### 2. 📦 Dynamic Question Box (Directly Under the Wheel)
-- **Multiple Choice Mode (`MCQ`):** Displays 4 interactive option cards (`A`, `B`, `C`, `D`). Clicking an option locks in the contender's choice in gold; clicking **👁 Reveal Answer (`R`)** highlights the correct option in emerald green (and wrong choice in crimson) alongside the KJV Scripture reference.
-- **Short Answer Mode:** Displays the question prompt with an optional live host scratchpad to project the contender's spoken response, plus a one-click **👁 Reveal Answer (`R`)** card showing the expected official answer and KJV verse quote.
-- **Countdown Timer:** Visual progress bar + digital countdown (`25s`–`40s` per question) with `Start/Pause (T)` and `Reset` controls.
+### 2. 📦 Discussion Question Box (Directly Under the Wheel)
+- **Open-ended prompts:** Each question includes its scripture reference and a projected host scratchpad for the response.
+- **Host guidance:** The reveal panel reminds the host to award marks for a clear, relevant, scripture-based response.
+- **Countdown Timer:** Visual progress bar + 90-second timer with `Start/Pause (T)` and `Reset` controls.
 - **Host Scoring Action Bar:**
   - `✅ Correct! (+Full Marks)` — Awards full marks (or `2×` if Double Marks active), launches celebration confetti, marks the question complete, and rotates to the next contender.
   - `➗ Half Marks` — Awards 50% of the question's marks for partially correct short answers.
@@ -45,28 +45,15 @@ The Game Show Host spins an interactive wheel loaded with **up to 50+ Bible ques
 ### 4. ⚙️ Full Admin Portal (Cloud-Synced with Supabase)
 - **Admin access password:** `JOSHUA`.
 - The password prompt is a client-side convenience gate; it is visible in this public repository and does not provide secure authentication for sensitive data.
-- **Question Management (CRUD):** Add, edit, search, or delete questions; choose Multiple Choice or Short Answer; customize **Score Marks** (`5`–`500`) and **Timer Seconds** per question; Export/Import `.json` packs; or reset to the 50-question Book of Daniel pack.
+- **Question Management (CRUD):** Add, edit, search, or delete questions; customize **Score Marks** and **Timer Seconds**; export/import `.json` packs; or restore the 20 default discussion questions.
 - **Contenders & Teams Management:** Add/remove contenders, edit scores, customize badge colors, reorder turn sequence, or reset all scores to `0`.
 - **Wheel & Branding Settings:** Customize the Organization Name, Event Title, Subtitle, custom logo upload, spin duration, and Supabase connection settings. Reset game progress to clear scores and restore all questions to unanswered while keeping the question bank and settings.
 
 ---
 
-## 📚 Pre-Loaded 50 Book of Daniel Questions (`Q1`–`Q50`)
+## 📚 Pre-Loaded 20 Youth Discussion Questions
 
-All **50 questions** are KJV-aligned and cover the entire **Book of Daniel (Chapters 1 to 12)**:
-
-| Question Range | Chapter / Theme | Formats Included |
-| :--- | :--- | :--- |
-| **Q1 – Q6** | **Daniel Ch. 1** — Faithfulness in Babylon, Pulse & Water Test | 3 MCQ, 3 Short Answer |
-| **Q7 – Q12** | **Daniel Ch. 2** — Nebuchadnezzar's Dream & The Great Image | 3 MCQ, 3 Short Answer |
-| **Q13 – Q17** | **Daniel Ch. 3** — The Golden Image & Burning Fiery Furnace | 3 MCQ, 2 Short Answer |
-| **Q18 – Q21** | **Daniel Ch. 4** — Vision of the Great Tree & Humbling of the King | 2 MCQ, 2 Short Answer |
-| **Q22 – Q26** | **Daniel Ch. 5** — Belshazzar's Feast & Handwriting on the Wall | 3 MCQ, 2 Short Answer |
-| **Q27 – Q31** | **Daniel Ch. 6** — Daniel in the Den of Lions | 3 MCQ, 2 Short Answer |
-| **Q32 – Q36** | **Daniel Ch. 7** — The Four Beasts & The Ancient of Days | 3 MCQ, 2 Short Answer |
-| **Q37 – Q40** | **Daniel Ch. 8** — Vision of the Ram and the Rough He-Goat | 2 MCQ, 2 Short Answer |
-| **Q41 – Q44** | **Daniel Ch. 9** — Daniel's Prayer & The Seventy Weeks Prophecy | 2 MCQ, 2 Short Answer |
-| **Q45 – Q50** | **Daniel Ch. 10–12** — Spiritual Warfare, Exploits & End-Time Visions | 2 MCQ, 4 Short Answer |
+The open-ended questions cover conviction and identity (Daniel 1), wisdom and leadership (Daniel 2), courage under pressure (Daniel 3 and 6), integrity and discernment (Daniel 5 and 6), prayer and intercession (Daniel 9), and a lasting legacy (Daniel 12).
 
 ---
 
@@ -131,7 +118,7 @@ If you prefer to drag and drop without connecting GitHub:
 # 1. Install dependencies (pg driver)
 npm install
 
-# 2. Seed / Reset the 50 Book of Daniel questions into Supabase PostgreSQL
+# 2. Seed / Reset the 20 youth discussion questions into Supabase PostgreSQL
 npm run seed
 
 # 3. Start the local server at http://localhost:3000
